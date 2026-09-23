@@ -35,6 +35,8 @@
 <link href="/websitelab/devices/ring-lab/ndx.css" rel="stylesheet"/>
 <link href="/websitelab/devices/ring-lab/ndz.css" rel="stylesheet"/>
 <link href="/websitelab/devices/ring-lab/uhx.css" rel="stylesheet"/>
+<link href="/websitelab/devices/ring-lab/hm-a.css" rel="stylesheet"/>
+<link href="/websitelab/devices/ring-lab/hm-b.css" rel="stylesheet"/>
 <!-- Motion states that start hidden are keyed to this class, so without
      script the page is simply shown. Set before first paint. -->
 <script>document.documentElement.classList.add('lab-js');</script>
@@ -42,6 +44,383 @@
 <body class="lab">
 <div data-ph-nav=""></div>
 <main>
+
+<!-- ========================================================================
+     00 · THE BRAND HOME · the top of the page reads as the Phenome home page:
+     film hero, device switcher, tests band, test switcher, Phenome+ marquee,
+     the growing film, the pinned reading list, the member wall and counter,
+     the quiz card and band, four pinned chapters, the journal and the
+     explore close. Styles in hm-a.css and hm-b.css, behaviour in hm.js.
+     Sections live inside one <div>, so shared.js reveal() never touches them.
+     ======================================================================== -->
+<div class="hm" data-hm="">
+
+<!-- 00.1 · film hero -->
+<section class="hm-top" aria-labelledby="hm-top-h">
+<video class="hm-top-film" autoplay="" muted="" loop="" playsinline="" preload="auto" poster="/websitelab/assets/lab/cbx/hero.webp"><source src="/websitelab/assets/lab/cbx/hero.mp4" type="video/mp4"/></video>
+<div class="hm-top-copy">
+<h2 class="ph-display is-left hm-top-h" id="hm-top-h"><span class="ph-display-lead">PhenomeTech Ring</span><span>Your biology, read daily</span></h2>
+<p class="hm-top-sub">A ring that reads you around the clock, set against your own genome.</p>
+<a class="hm-btn is-white" href="/phenome-store/devices/ring/">Discover the Ring</a>
+</div>
+<ul class="hm-top-strip">
+<li><b>Whole genome sequencing</b><span>Every letter, read in full</span></li>
+<li><b>Five to seven days</b><span>Of battery on one charge</span></li>
+<li><b>Accredited laboratory</b><span>Tested to ISO 15189</span></li>
+</ul>
+</section>
+
+<!-- 00.2 · device switcher -->
+<section class="hm-pick" data-hm-pick="" aria-label="Choose a device">
+<div class="hm-pick-tabs" role="tablist" aria-label="Device">
+<button type="button" role="tab" aria-selected="true" data-k="ring">Ring</button>
+<button type="button" role="tab" aria-selected="false" data-k="band">Band</button>
+</div>
+
+<div class="hm-pick-panel" data-panel="ring">
+<div class="hm-pick-head">
+<h2 class="ph-display is-ink is-left hm-pick-h"><span class="ph-display-lead">PhenomeTech Ring</span><span>Worn all week</span></h2>
+<ul class="hm-chips"><li>Nine finishes</li><li>Five to seven day battery</li><li>IP67 for washing and rain</li><li>Sleep and recovery</li><li>Pocket charging case</li><li>Read against your genome</li></ul>
+<div class="hm-pick-act"><a class="hm-btn is-navy" href="/phenome-store/devices/ring/">Explore</a><span class="hm-price">From £179</span></div>
+</div>
+<div class="hm-gal" data-hm-gal="">
+<div class="hm-gal-track">
+<figure><img src="/websitelab/assets/lab/cbx/ring-metallicsilver.webp" alt="PhenomeTech Ring in metallic silver" width="1400" height="1000" loading="lazy"/><figcaption>Metallic silver</figcaption></figure>
+<figure><img src="/websitelab/assets/lab/cbx/ring-metallicblack.webp" alt="PhenomeTech Ring in metallic black" width="1400" height="1000" loading="lazy"/><figcaption>Metallic black</figcaption></figure>
+<figure><img src="/websitelab/assets/lab/cbx/ring-brushsilver.webp" alt="PhenomeTech Ring in brushed silver" width="1400" height="1000" loading="lazy"/><figcaption>Brushed silver</figcaption></figure>
+<figure><img src="/websitelab/assets/lab/cbx/ring-rosematte.webp" alt="PhenomeTech Ring in rose matte" width="1400" height="1000" loading="lazy"/><figcaption>Rose matte</figcaption></figure>
+<figure><img src="/websitelab/assets/lab/cbx/ring-stealthblack.webp" alt="PhenomeTech Ring in stealth black" width="1400" height="1000" loading="lazy"/><figcaption>Stealth black</figcaption></figure>
+<figure><img src="/websitelab/assets/lab/cbx/ring-ceramicblack.webp" alt="PhenomeTech Ring in black ceramic" width="1400" height="1000" loading="lazy"/><figcaption>Ceramic black</figcaption></figure>
+<figure><img src="/websitelab/assets/lab/cbx/ring-ceramicwhite.webp" alt="PhenomeTech Ring in white ceramic" width="1400" height="1000" loading="lazy"/><figcaption>Ceramic white</figcaption></figure>
+<figure><img src="/websitelab/assets/lab/cbx/ring-ceramicpink.webp" alt="PhenomeTech Ring in pink ceramic" width="1400" height="1000" loading="lazy"/><figcaption>Ceramic pink</figcaption></figure>
+<figure><img src="/websitelab/assets/lab/cbx/ring-metallicgold.webp" alt="PhenomeTech Ring in metallic gold" width="1400" height="1000" loading="lazy"/><figcaption>Metallic gold</figcaption></figure>
+</div>
+<div class="hm-gal-nav"><button type="button" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><button type="button" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div>
+</div>
+</div>
+
+<div class="hm-pick-panel" data-panel="band" hidden="">
+<div class="hm-pick-head">
+<h2 class="ph-display is-ink is-left hm-pick-h"><span class="ph-display-lead">PhenomeTech Band</span><span>Built for training</span></h2>
+<ul class="hm-chips"><li>Six colourways</li><li>Sport silicone or woven nylon</li><li>No screen, no distraction</li><li>Heart rate through the day</li><li>Training load</li></ul>
+<div class="hm-pick-act"><a class="hm-btn is-navy" href="/phenome-store/devices/band/">Explore</a><span class="hm-price">£149</span></div>
+</div>
+<div class="hm-gal" data-hm-gal="">
+<div class="hm-gal-track">
+<figure><img src="/websitelab/assets/lab/cbx/band-onyx.webp" alt="PhenomeTech Band in onyx" width="1400" height="1000" loading="lazy"/><figcaption>Onyx, sport silicone</figcaption></figure>
+<figure><img src="/websitelab/assets/lab/cbx/band-ember.webp" alt="PhenomeTech Band in ember" width="1400" height="1000" loading="lazy"/><figcaption>Ember, sport silicone</figcaption></figure>
+<figure><img src="/websitelab/assets/lab/cbx/band-harbour.webp" alt="PhenomeTech Band in harbour" width="1400" height="1000" loading="lazy"/><figcaption>Harbour, sport silicone</figcaption></figure>
+<figure><img src="/websitelab/assets/lab/cbx/band-dune.webp" alt="PhenomeTech Band in dune" width="1400" height="1000" loading="lazy"/><figcaption>Dune, sport silicone</figcaption></figure>
+<figure><img src="/websitelab/assets/lab/cbx/band-graphite.webp" alt="PhenomeTech Band in graphite" width="1400" height="1000" loading="lazy"/><figcaption>Graphite, woven nylon</figcaption></figure>
+<figure><img src="/websitelab/assets/lab/cbx/band-tidal.webp" alt="PhenomeTech Band in tidal" width="1400" height="1000" loading="lazy"/><figcaption>Tidal, woven nylon</figcaption></figure>
+</div>
+<div class="hm-gal-nav"><button type="button" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><button type="button" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div>
+</div>
+</div>
+</section>
+
+<!-- 00.3 · tests band -->
+<section class="hm-band" aria-labelledby="hm-band-h">
+<img class="hm-band-img" src="/websitelab/assets/lab/cbx/band-tests.webp" alt="Phenome test kits on a dark plinth" width="2000" height="1125" loading="lazy"/>
+<div class="hm-band-copy">
+<h2 class="ph-display is-left hm-top-h" id="hm-band-h"><span class="ph-display-lead">Comprehensive Genomic Test</span><span>Read all of it</span></h2>
+<p class="hm-top-sub">3.2 billion letters of your genome, sequenced once and read for life.</p>
+<a class="hm-btn is-white" href="/phenome-store/testing/genetic/">Discover the tests</a>
+</div>
+</section>
+
+<!-- 00.4 · test switcher -->
+<section class="hm-pick is-tests" data-hm-pick="" aria-label="Choose a test">
+<div class="hm-pick-tabs" role="tablist" aria-label="Test">
+<button type="button" role="tab" aria-selected="true" data-k="genomic">Genomic</button>
+<button type="button" role="tab" aria-selected="false" data-k="carrier">Carrier</button>
+<button type="button" role="tab" aria-selected="false" data-k="newborn">Newborn</button>
+<button type="button" role="tab" aria-selected="false" data-k="sports">Sports</button>
+<button type="button" role="tab" aria-selected="false" data-k="gut">Gut</button>
+<button type="button" role="tab" aria-selected="false" data-k="oral">Oral</button>
+</div>
+<div class="hm-pick-panel" data-panel="genomic">
+<div class="hm-pick-head">
+<h2 class="ph-display is-ink is-left hm-pick-h"><span class="ph-display-lead">Comprehensive Genomic Test</span><span>The whole picture</span></h2>
+<ul class="hm-chips"><li>Whole genome sequencing</li><li>Thirteen health panels</li><li>One saliva sample</li><li>Results in two to three weeks</li></ul>
+<div class="hm-pick-act"><a class="hm-btn is-navy" href="/phenome-store/testing/comprehensive-genomic/">Explore</a><span class="hm-price">£650</span></div>
+</div>
+<div class="hm-gal" data-hm-gal="">
+<div class="hm-gal-track">
+<figure><img src="/websitelab/assets/lab/cbx/kit-genomic.webp" alt="Comprehensive Genomic Test, studio render" width="1400" height="1000" loading="lazy"/><figcaption>Studio render</figcaption></figure>
+<figure class="is-photo"><img src="/websitelab/assets/lab/cbx/kit-genomic-2.webp" alt="Comprehensive Genomic Test, the kit" width="1400" height="1000" loading="lazy"/><figcaption>The kit</figcaption></figure>
+<figure class="is-photo"><img src="/websitelab/assets/lab/cbx/kit-genomic-3.webp" alt="Comprehensive Genomic Test, in the box" width="1400" height="1000" loading="lazy"/><figcaption>In the box</figcaption></figure>
+</div>
+<div class="hm-gal-nav"><button type="button" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><button type="button" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div>
+</div>
+</div>
+
+<div class="hm-pick-panel" data-panel="carrier" hidden="">
+<div class="hm-pick-head">
+<h2 class="ph-display is-ink is-left hm-pick-h"><span class="ph-display-lead">Carrier Screening Test</span><span>Before you plan a family</span></h2>
+<ul class="hm-chips"><li>Inherited conditions</li><li>For you or your partner</li><li>Saliva at home</li></ul>
+<div class="hm-pick-act"><a class="hm-btn is-navy" href="/phenome-store/testing/carrier-screening/">Explore</a><span class="hm-price">£390</span></div>
+</div>
+<div class="hm-gal" data-hm-gal="">
+<div class="hm-gal-track">
+<figure><img src="/websitelab/assets/lab/cbx/kit-carrier.webp" alt="Carrier Screening Test, studio render" width="1400" height="1000" loading="lazy"/><figcaption>Studio render</figcaption></figure>
+<figure class="is-photo"><img src="/websitelab/assets/lab/cbx/kit-carrier-2.webp" alt="Carrier Screening Test, the kit" width="1400" height="1000" loading="lazy"/><figcaption>The kit</figcaption></figure>
+<figure class="is-photo"><img src="/websitelab/assets/lab/cbx/kit-carrier-3.webp" alt="Carrier Screening Test, in the box" width="1400" height="1000" loading="lazy"/><figcaption>In the box</figcaption></figure>
+</div>
+<div class="hm-gal-nav"><button type="button" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><button type="button" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div>
+</div>
+</div>
+
+<div class="hm-pick-panel" data-panel="newborn" hidden="">
+<div class="hm-pick-head">
+<h2 class="ph-display is-ink is-left hm-pick-h"><span class="ph-display-lead">Newborn Screening Test</span><span>A clear start in life</span></h2>
+<ul class="hm-chips"><li>Gentle cheek swab</li><li>Treatable conditions, found early</li><li>Collected at home</li></ul>
+<div class="hm-pick-act"><a class="hm-btn is-navy" href="/phenome-store/testing/newborn-screening/">Explore</a><span class="hm-price">£295</span></div>
+</div>
+<div class="hm-gal" data-hm-gal="">
+<div class="hm-gal-track">
+<figure><img src="/websitelab/assets/lab/cbx/kit-newborn.webp" alt="Newborn Screening Test, studio render" width="1400" height="1000" loading="lazy"/><figcaption>Studio render</figcaption></figure>
+<figure class="is-photo"><img src="/websitelab/assets/lab/cbx/kit-newborn-2.webp" alt="Newborn Screening Test, the kit" width="1400" height="1000" loading="lazy"/><figcaption>The kit</figcaption></figure>
+<figure class="is-photo"><img src="/websitelab/assets/lab/cbx/kit-newborn-3.webp" alt="Newborn Screening Test, in the box" width="1400" height="1000" loading="lazy"/><figcaption>In the box</figcaption></figure>
+</div>
+<div class="hm-gal-nav"><button type="button" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><button type="button" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div>
+</div>
+</div>
+
+<div class="hm-pick-panel" data-panel="sports" hidden="">
+<div class="hm-pick-head">
+<h2 class="ph-display is-ink is-left hm-pick-h"><span class="ph-display-lead">Sports Performance Test</span><span>Train with intention</span></h2>
+<ul class="hm-chips"><li>Strength and endurance</li><li>Recovery</li><li>Injury risk</li><li>Collected at home</li></ul>
+<div class="hm-pick-act"><a class="hm-btn is-navy" href="/phenome-store/testing/sports-performance/">Explore</a><span class="hm-price">£220</span></div>
+</div>
+<div class="hm-gal" data-hm-gal="">
+<div class="hm-gal-track">
+<figure><img src="/websitelab/assets/lab/cbx/kit-sports.webp" alt="Sports Performance Test, studio render" width="1400" height="1000" loading="lazy"/><figcaption>Studio render</figcaption></figure>
+<figure class="is-photo"><img src="/websitelab/assets/lab/cbx/kit-sports-2.webp" alt="Sports Performance Test, the kit" width="1400" height="1000" loading="lazy"/><figcaption>The kit</figcaption></figure>
+<figure class="is-photo"><img src="/websitelab/assets/lab/cbx/kit-sports-3.webp" alt="Sports Performance Test, in the box" width="1400" height="1000" loading="lazy"/><figcaption>In the box</figcaption></figure>
+</div>
+<div class="hm-gal-nav"><button type="button" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><button type="button" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div>
+</div>
+</div>
+
+<div class="hm-pick-panel" data-panel="gut" hidden="">
+<div class="hm-pick-head">
+<h2 class="ph-display is-ink is-left hm-pick-h"><span class="ph-display-lead">Gut Microbiome Test</span><span>What lives inside you</span></h2>
+<ul class="hm-chips"><li>Bacteria and balance</li><li>Food guidance</li><li>Sample at home</li></ul>
+<div class="hm-pick-act"><a class="hm-btn is-navy" href="/phenome-store/testing/gut-microbiome/">Explore</a><span class="hm-price">£180</span></div>
+</div>
+<div class="hm-gal" data-hm-gal="">
+<div class="hm-gal-track">
+<figure><img src="/websitelab/assets/lab/cbx/kit-gut.webp" alt="Gut Microbiome Test, studio render" width="1400" height="1000" loading="lazy"/><figcaption>Studio render</figcaption></figure>
+<figure class="is-photo"><img src="/websitelab/assets/lab/cbx/kit-gut-2.webp" alt="Gut Microbiome Test, the kit" width="1400" height="1000" loading="lazy"/><figcaption>The kit</figcaption></figure>
+<figure class="is-photo"><img src="/websitelab/assets/lab/cbx/kit-gut-3.webp" alt="Gut Microbiome Test, in the box" width="1400" height="1000" loading="lazy"/><figcaption>In the box</figcaption></figure>
+</div>
+<div class="hm-gal-nav"><button type="button" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><button type="button" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div>
+</div>
+</div>
+
+<div class="hm-pick-panel" data-panel="oral" hidden="">
+<div class="hm-pick-head">
+<h2 class="ph-display is-ink is-left hm-pick-h"><span class="ph-display-lead">Oral Microbiome Test</span><span>Health starts at the mouth</span></h2>
+<ul class="hm-chips"><li>Oral bacteria</li><li>Gum and breath health</li><li>Swab at home</li></ul>
+<div class="hm-pick-act"><a class="hm-btn is-navy" href="/phenome-store/testing/oral-microbiome/">Explore</a></div>
+</div>
+<div class="hm-gal" data-hm-gal="">
+<div class="hm-gal-track">
+<figure><img src="/websitelab/assets/lab/cbx/kit-oral.webp" alt="Oral Microbiome Test, studio render" width="1400" height="1000" loading="lazy"/><figcaption>Studio render</figcaption></figure>
+<figure class="is-photo"><img src="/websitelab/assets/lab/cbx/kit-oral-2.webp" alt="Oral Microbiome Test, the kit" width="1400" height="1000" loading="lazy"/><figcaption>The kit</figcaption></figure>
+<figure class="is-photo"><img src="/websitelab/assets/lab/cbx/kit-oral-3.webp" alt="Oral Microbiome Test, in the box" width="1400" height="1000" loading="lazy"/><figcaption>In the box</figcaption></figure>
+</div>
+<div class="hm-gal-nav"><button type="button" data-dir="-1" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg></button><button type="button" data-dir="1" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M9 5l7 7-7 7"/></svg></button></div>
+</div>
+</div>
+</section>
+
+<!-- 00.5 · Phenome+ marquee -->
+<section class="hm-marq" aria-labelledby="hm-marq-h">
+<h2 class="hm-solid" id="hm-marq-h">Phenome+ supplements</h2>
+<div class="hm-marq-win"><div class="hm-marq-row" data-hm-marq="">
+<a class="hm-supp" href="/phenome-store/supplements/nad/"><img src="/websitelab/assets/shop/supp-nad.webp" alt="NAD+" loading="lazy"/><b>NAD+</b><span>Energy and cognition</span></a>
+<a class="hm-supp" href="/phenome-store/supplements/nad-boost/"><img src="/websitelab/assets/shop/supp-nad-boost.webp" alt="NAD+ Boost" loading="lazy"/><b>NAD+ Boost</b><span>Energy and cognition</span></a>
+<a class="hm-supp" href="/phenome-store/supplements/nad-betaine/"><img src="/websitelab/assets/shop/supp-nad-betaine.webp" alt="NAD+ Betaine" loading="lazy"/><b>NAD+ Betaine</b><span>Energy and cognition</span></a>
+<a class="hm-supp" href="/phenome-store/supplements/nad-resveratrol/"><img src="/websitelab/assets/shop/supp-nad-resveratrol.webp" alt="NAD+ Resveratrol" loading="lazy"/><b>NAD+ Resveratrol</b><span>Energy and cognition</span></a>
+<a class="hm-supp" href="/phenome-store/supplements/nad-spermidine/"><img src="/websitelab/assets/shop/supp-nad-spermidine.webp" alt="NAD+ Spermidine" loading="lazy"/><b>NAD+ Spermidine</b><span>Energy and cognition</span></a>
+<a class="hm-supp" href="/phenome-store/supplements/mitochondria-boost/"><img src="/websitelab/assets/shop/supp-mitochondria.webp" alt="Mitochondria Boost" loading="lazy"/><b>Mitochondria Boost</b><span>Energy and cognition</span></a>
+<a class="hm-supp" href="/phenome-store/supplements/carnitine-performance/"><img src="/websitelab/assets/shop/supp-carnitine.webp" alt="Carnitine Performance" loading="lazy"/><b>Carnitine Performance</b><span>Energy and cognition</span></a>
+<a class="hm-supp" href="/phenome-store/supplements/guarana-capsules/"><img src="/websitelab/assets/shop/supp-guarana.webp" alt="Guarana" loading="lazy"/><b>Guarana</b><span>Energy and cognition</span></a>
+<a class="hm-supp" href="/phenome-store/supplements/gly-nac/"><img src="/websitelab/assets/shop/supp-gly-nac.webp" alt="Gly-NAC" loading="lazy"/><b>Gly-NAC</b><span>Energy and cognition</span></a>
+<a class="hm-supp" href="/phenome-store/supplements/ser-nac/"><img src="/websitelab/assets/shop/supp-ser-nac.webp" alt="Ser-NAC" loading="lazy"/><b>Ser-NAC</b><span>Energy and cognition</span></a>
+<a class="hm-supp" href="/phenome-store/supplements/quercetin-capsules/"><img src="/websitelab/assets/shop/supp-quercetin.webp" alt="Quercetin" loading="lazy"/><b>Quercetin</b><span>Immunity and respiratory</span></a>
+<a class="hm-supp" href="/phenome-store/supplements/sambucus-gummies/"><img src="/websitelab/assets/shop/supp-sambucus.webp" alt="Sambucus" loading="lazy"/><b>Sambucus</b><span>Immunity and respiratory</span></a>
+<a class="hm-supp" href="/phenome-store/supplements/pelargonium-throat-lozenges/"><img src="/websitelab/assets/shop/supp-pelargonium.webp" alt="Pelargonium" loading="lazy"/><b>Pelargonium</b><span>Immunity and respiratory</span></a>
+<a class="hm-supp" href="/phenome-store/supplements/propolis-throat-lozenges/"><img src="/websitelab/assets/shop/supp-propolis.webp" alt="Propolis" loading="lazy"/><b>Propolis</b><span>Immunity and respiratory</span></a>
+<a class="hm-supp" href="/phenome-store/supplements/throat-relief-lozenges/"><img src="/websitelab/assets/shop/supp-throat-relief.webp" alt="Throat Relief" loading="lazy"/><b>Throat Relief</b><span>Immunity and respiratory</span></a>
+<a class="hm-supp" href="/phenome-store/supplements/nigella-sativa-seed-oil/"><img src="/websitelab/assets/shop/supp-nigella.webp" alt="Nigella Sativa" loading="lazy"/><b>Nigella Sativa</b><span>Immunity and respiratory</span></a>
+<a class="hm-supp" href="/phenome-store/supplements/broccoli-complex-capsules/"><img src="/websitelab/assets/shop/supp-broccoli.webp" alt="Broccoli Complex" loading="lazy"/><b>Broccoli Complex</b><span>Immunity and respiratory</span></a>
+<a class="hm-supp" href="/phenome-store/supplements/bromelain-capsules/"><img src="/websitelab/assets/shop/supp-bromelain.webp" alt="Bromelain" loading="lazy"/><b>Bromelain</b><span>Anti inflammatory</span></a>
+<a class="hm-supp" href="/phenome-store/supplements/joint-boost-capsules/"><img src="/websitelab/assets/shop/supp-joint-boost.webp" alt="Joint Boost" loading="lazy"/><b>Joint Boost</b><span>Anti inflammatory</span></a>
+<a class="hm-supp" href="/phenome-store/supplements/flexicream/"><img src="/websitelab/assets/shop/supp-flexicream.webp" alt="FlexiCream" loading="lazy"/><b>FlexiCream</b><span>Anti inflammatory</span></a>
+<a class="hm-supp" href="/phenome-store/supplements/multi-collagen-powder/"><img src="/websitelab/assets/shop/supp-collagen.webp" alt="Multi Collagen" loading="lazy"/><b>Multi Collagen</b><span>Skin and beauty</span></a>
+</div></div>
+</section>
+
+<!-- 00.6 · the growing film -->
+<section class="hm-flow" data-hm-flow="" aria-labelledby="hm-flow-h">
+<h2 class="ph-display is-ink hm-flow-h" id="hm-flow-h"><span class="ph-display-lead">Phenome Intelligence</span><span>Every reading, set against your genome</span></h2>
+<div class="hm-flow-track">
+<div class="hm-flow-stage">
+<div class="hm-flow-frame">
+<video autoplay="" muted="" loop="" playsinline="" preload="metadata" poster="/websitelab/assets/lab/cbx/flow.webp"><source src="/websitelab/assets/lab/cbx/flow.mp4" type="video/mp4"/></video>
+<div class="hm-flow-copy">
+<h3 class="ph-display hm-flow-in"><span class="ph-display-lead">One plan</span><span>Built from you</span></h3>
+<ul class="hm-flow-ic">
+<li><span class="hm-ic"><svg viewBox="0 0 24 24"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5z"/></svg></span>Sleep</li>
+<li><span class="hm-ic"><svg viewBox="0 0 24 24"><path d="M3 12h4l2.5-6 5 12 2.5-6h4"/></svg></span>Recovery</li>
+<li><span class="hm-ic"><svg viewBox="0 0 24 24"><path d="M13 3L5 14h6l-1 7 8-11h-6z"/></svg></span>Energy</li>
+</ul>
+<p>Your ring, your tests and your supplements feed one plan. Each morning it tells you what changed and what to do about it.</p>
+<a class="hm-btn is-white" href="/phenome-store/app/">See the app</a>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 00.7 · the pinned reading list -->
+<section class="hm-list" data-hm-list="" aria-labelledby="hm-list-h">
+<div class="hm-list-stage">
+<div class="hm-list-card">
+<h2 class="hm-list-k" id="hm-list-h">Everything it reads</h2>
+<div class="hm-list-win"><ol class="hm-list-names">
+<li>Sleep stages</li>
+<li>Heart rate</li>
+<li>Blood oxygen</li>
+<li>Skin temperature</li>
+<li>Steps and activity</li>
+<li>IP67 water resistance</li>
+<li>All day comfort</li>
+<li>Pocket charging case</li>
+<li>Nine finishes</li>
+<li>Whole genome</li>
+<li>Gut microbiome</li>
+<li>Matched supplements</li>
+<li>The Band</li>
+</ol></div>
+</div>
+<div class="hm-list-media">
+<figure class="is-on"><img src="/websitelab/assets/lab/cbx/tech-sleep.webp" alt="" width="1000" height="1250" loading="lazy"/><figcaption>Light, deep and dream sleep, read overnight</figcaption></figure>
+<figure><img src="/websitelab/assets/lab/cbx/tech-heart.webp" alt="" width="1000" height="1250" loading="lazy"/><figcaption>Resting and through the day</figcaption></figure>
+<figure><img src="/websitelab/assets/lab/cbx/tech-oxygen.webp" alt="" width="1000" height="1250" loading="lazy"/><figcaption>Read quietly while you sleep</figcaption></figure>
+<figure><img src="/websitelab/assets/lab/cbx/tech-temp.webp" alt="" width="1000" height="1250" loading="lazy"/><figcaption>Small shifts, noticed early</figcaption></figure>
+<figure><img src="/websitelab/assets/lab/cbx/tech-move.webp" alt="" width="1000" height="1250" loading="lazy"/><figcaption>Every walk and every run</figcaption></figure>
+<figure><img src="/websitelab/assets/lab/cbx/tech-water.webp" alt="" width="1000" height="1250" loading="lazy"/><figcaption>Safe for washing and rain</figcaption></figure>
+<figure><img src="/websitelab/assets/lab/cbx/tech-wear.webp" alt="" width="1000" height="1250" loading="lazy"/><figcaption>Light enough to forget</figcaption></figure>
+<figure><img src="/websitelab/assets/lab/cbx/tech-case.webp" alt="" width="1000" height="1250" loading="lazy"/><figcaption>A full charge in 1.5 hours</figcaption></figure>
+<figure><img src="/websitelab/assets/lab/cbx/tech-finish.webp" alt="" width="1000" height="1250" loading="lazy"/><figcaption>Metal, matte or ceramic</figcaption></figure>
+<figure><img src="/websitelab/assets/lab/cbx/tech-genome.webp" alt="" width="1000" height="1250" loading="lazy"/><figcaption>Every letter, read in full</figcaption></figure>
+<figure><img src="/websitelab/assets/lab/cbx/tech-gut.webp" alt="" width="1000" height="1250" loading="lazy"/><figcaption>What lives inside you</figcaption></figure>
+<figure><img src="/websitelab/assets/lab/cbx/tech-supp.webp" alt="" width="1000" height="1250" loading="lazy"/><figcaption>Formulas chosen for your results</figcaption></figure>
+<figure><img src="/websitelab/assets/lab/cbx/tech-band.webp" alt="" width="1000" height="1250" loading="lazy"/><figcaption>Training load on the wrist</figcaption></figure>
+</div>
+</div>
+</section>
+
+<!-- 00.8 · member wall and counter -->
+<section class="hm-wall" data-hm-wall="" aria-labelledby="hm-wall-h">
+<div class="hm-wall-head">
+<h2 class="ph-display is-ink hm-wall-h" id="hm-wall-h"><span class="ph-display-lead">Built with our members</span><span>A little clearer every day</span></h2>
+<p class="hm-lede">Rings on hands, kits on kitchen tables, bottles by the bed. This is longevity when it fits into a normal week.</p>
+</div>
+<div class="hm-wall-cols">
+<div class="hm-wall-col" data-speed="0.06"><img src="/websitelab/assets/lab/cbx/wall-00.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-07.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-14.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-21.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-28.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-35.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-42.webp" alt="" width="480" height="640" loading="lazy"/></div>
+<div class="hm-wall-col" data-speed="-0.09"><img src="/websitelab/assets/lab/cbx/wall-01.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-08.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-15.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-22.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-29.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-36.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-43.webp" alt="" width="480" height="640" loading="lazy"/></div>
+<div class="hm-wall-col" data-speed="0.12"><img src="/websitelab/assets/lab/cbx/wall-02.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-09.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-16.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-23.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-30.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-37.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-44.webp" alt="" width="480" height="640" loading="lazy"/></div>
+<div class="hm-wall-col" data-speed="-0.06"><img src="/websitelab/assets/lab/cbx/wall-03.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-10.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-17.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-24.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-31.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-38.webp" alt="" width="480" height="640" loading="lazy"/></div>
+<div class="hm-wall-col" data-speed="0.09"><img src="/websitelab/assets/lab/cbx/wall-04.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-11.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-18.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-25.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-32.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-39.webp" alt="" width="480" height="640" loading="lazy"/></div>
+<div class="hm-wall-col" data-speed="-0.12"><img src="/websitelab/assets/lab/cbx/wall-05.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-12.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-19.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-26.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-33.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-40.webp" alt="" width="480" height="640" loading="lazy"/></div>
+<div class="hm-wall-col" data-speed="0.06"><img src="/websitelab/assets/lab/cbx/wall-06.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-13.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-20.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-27.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-34.webp" alt="" width="480" height="640" loading="lazy"/><img src="/websitelab/assets/lab/cbx/wall-41.webp" alt="" width="480" height="640" loading="lazy"/></div>
+</div>
+<div class="hm-count" data-hm-count="3200000000">
+<div class="hm-count-digits" aria-hidden="true"></div>
+<p class="hm-count-k"><span class="hm-sr">3,200,000,000 </span>Letters read in every whole genome</p>
+</div>
+</section>
+
+<!-- 00.9 · quiz card -->
+<section class="hm-cta" aria-labelledby="hm-cta-h">
+<div class="hm-cta-card">
+<div class="hm-cta-copy">
+<h2 class="ph-display is-left hm-cta-h" id="hm-cta-h"><span class="ph-display-lead">Not sure yet?</span><span>Start with a few questions</span></h2>
+<p>Tell us what you want to know and we will point you to the test, device or formula that fits.</p>
+<a class="hm-btn is-white" href="/phenome-store/quiz/">Take the quiz</a>
+</div>
+<img src="/websitelab/assets/lab/cbx/cta.webp" alt="Phenome test kits on a wooden plinth among leaves" width="1400" height="1050" loading="lazy"/>
+</div>
+</section>
+
+<!-- 00.10 · which Phenome -->
+<section class="hm-which" aria-labelledby="hm-which-h">
+<div class="hm-which-fan" aria-hidden="true">
+<img src="/websitelab/assets/lab/cbx/band-tidal.webp" alt="" width="1400" height="1000" loading="lazy"/>
+<img src="/websitelab/assets/lab/cbx/kit-genomic.webp" alt="" width="1400" height="1000" loading="lazy"/>
+<img src="/websitelab/assets/lab/cbx/ring-ceramicwhite.webp" alt="" width="1400" height="1000" loading="lazy"/>
+<img src="/websitelab/assets/nad/prod/nad-cut.webp" alt="" loading="lazy"/>
+<img src="/websitelab/assets/lab/cbx/kit-gut.webp" alt="" width="1400" height="1000" loading="lazy"/>
+</div>
+<h2 class="ph-display is-ink hm-which-h" id="hm-which-h"><span class="ph-display-lead">Ring, band, test or formula</span><span>Which Phenome fits you?</span></h2>
+<div class="hm-which-act"><a class="hm-btn is-navy" href="/phenome-store/quiz/">Take the quiz</a><a class="hm-link" href="/phenome-store/testing/compare/">Or compare the tests</a></div>
+</section>
+
+<!-- 00.11 · four pinned chapters -->
+<section class="hm-story" data-hm-story="" aria-label="Why Phenome">
+<div class="hm-story-stage">
+<figure class="hm-story-img is-on"><img src="/websitelab/assets/lab/cbx/story-science.webp" alt="" width="2000" height="1125" loading="lazy"/></figure>
+<figure class="hm-story-img"><img src="/websitelab/assets/lab/cbx/story-standard.webp" alt="" width="2000" height="1125" loading="lazy"/></figure>
+<figure class="hm-story-img"><img src="/websitelab/assets/lab/cbx/story-privacy.webp" alt="" width="2000" height="1125" loading="lazy"/></figure>
+<figure class="hm-story-img"><img src="/websitelab/assets/lab/cbx/story-support.webp" alt="" width="2000" height="1125" loading="lazy"/></figure>
+<div class="hm-story-copy">
+<article class="is-on"><h2 class="ph-display is-left"><span class="ph-display-lead">Sequenced in full</span><span>By Illumina</span></h2><p>Every genome is read on Illumina sequencing in an accredited laboratory, never sampled and never guessed.</p><a class="hm-link is-white" href="/phenome-store/science/">View the science</a></article>
+<article><h2 class="ph-display is-left"><span class="ph-display-lead">Made to a higher standard</span><span>In every capsule</span></h2><p>Each Phenome+ formula is made in GMP certified facilities and batch tested before it ships.</p><a class="hm-link is-white" href="/phenome-store/store/supplements/">Shop supplements</a></article>
+<article><h2 class="ph-display is-left"><span class="ph-display-lead">Your readings</span><span>Stay yours</span></h2><p>Rings, results and reports are encrypted, never sold, and deleted when you ask.</p><a class="hm-link is-white" href="/phenome-store/app/">How the app works</a></article>
+<article><h2 class="ph-display is-left"><span class="ph-display-lead">Help is</span><span>One message away</span></h2><p>Real people answer every question, from ring sizing to reading your report.</p><a class="hm-link is-white" href="/phenome-store/contact/">Contact us</a></article>
+</div>
+<div class="hm-story-tabs">
+<button type="button" class="is-on"><i></i>01 Science</button>
+<button type="button"><i></i>02 Standard</button>
+<button type="button"><i></i>03 Privacy</button>
+<button type="button"><i></i>04 Support</button>
+</div>
+</div>
+</section>
+
+<!-- 00.12 · journal -->
+<section class="hm-journal" aria-labelledby="hm-journal-h">
+<h2 class="hm-solid" id="hm-journal-h">Phenome journal</h2>
+<div class="hm-journal-grid">
+<a class="hm-post" href="/phenome-store/devices/ring/"><img src="/websitelab/assets/lab/cbx/journal-1.webp" alt="A hand wearing the ring reaching into a mountain stream" width="900" height="675" loading="lazy"/><h3>Water, rain and the ring</h3><time datetime="2026-09-12">12 September 2026</time></a>
+<a class="hm-post" href="/phenome-store/testing/how-it-works/"><img src="/websitelab/assets/lab/cbx/journal-2.webp" alt="Phenome test kits in morning light" width="900" height="675" loading="lazy"/><h3>From saliva to sequence, step by step</h3><time datetime="2026-08-28">28 August 2026</time></a>
+<a class="hm-post" href="/phenome-store/supplements/pelargonium-throat-lozenges/"><img src="/websitelab/assets/lab/cbx/journal-3.webp" alt="Two boxes of Pelargonium lozenges" width="900" height="675" loading="lazy"/><h3>Pelargonium, from root to lozenge</h3><time datetime="2026-08-14">14 August 2026</time></a>
+</div>
+</section>
+
+<!-- 00.13 · keep exploring -->
+<section class="hm-more" aria-labelledby="hm-more-h">
+<h2 class="hm-solid is-white" id="hm-more-h">Keep exploring</h2>
+<div class="hm-more-grid">
+<a class="hm-tile" href="/phenome-store/store/"><img src="/websitelab/assets/lab/cbx/more-shop.webp" alt="" width="900" height="1125" loading="lazy"/><span>Shop all</span></a>
+<a class="hm-tile" href="/phenome-store/science/"><img src="/websitelab/assets/lab/cbx/more-science.webp" alt="" width="900" height="1125" loading="lazy"/><span>Science</span></a>
+<a class="hm-tile" href="/phenome-store/store/supplements/"><img src="/websitelab/assets/lab/cbx/more-supp.webp" alt="" width="900" height="1125" loading="lazy"/><span>Supplements</span></a>
+</div>
+<div class="hm-more-pills">
+<a href="/phenome-store/devices/ring/">Find your size</a>
+<a href="/phenome-store/testing/compare/">Compare tests</a>
+<a href="/phenome-store/testing/how-it-works/">How testing works</a>
+<a href="/phenome-store/contact/">Contact us</a>
+</div>
+</section>
+
+</div>
+<!-- ======================================================================== -->
 
 <!-- ========================================================================
      0 · THE HOME OPENER · the first screens of ultrahuman.com/se, section for
@@ -1956,6 +2335,7 @@
 <script src="/websitelab/phenome-routes.js"></script>
 <script src="/websitelab/devices/ring-lab/lab.js"></script>
 <script src="/websitelab/devices/ring-lab/uhx.js"></script>
+<script src="/websitelab/devices/ring-lab/hm.js"></script>
 <script src="/websitelab/devices/ring-lab/fit.js"></script>
 <script src="/websitelab/devices/ring-lab/gen.js"></script>
 <script src="/websitelab/devices/ring-lab/sam.js"></script>

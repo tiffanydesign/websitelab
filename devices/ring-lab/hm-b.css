@@ -1,0 +1,207 @@
+/* ==========================================================================
+   hm-b.css · THE BRAND HOME, part two: the pinned reading list, the member
+   wall and its counter, the quiz card, the "which Phenome" band, the four
+   pinned chapters, the journal and the explore close. Tokens in hm-a.css.
+   ========================================================================== */
+
+/* ======================================================================
+   7 · THE PINNED READING LIST · on the deep navy, a white card holding the
+   list (the live name in ink, the rest held back) beside a picture card that
+   swaps with it. The section is as tall as the list; the stage is sticky.
+   ====================================================================== */
+.hm-list { --n: 13; position: relative; height: calc(var(--n) * 26vh + 100svh); background: var(--hm-deep); }
+.hm-list-stage {
+  position: sticky; top: var(--hm-nav); height: calc(100svh - var(--hm-nav));
+  display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: clamp(24px, 4vw, 60px) var(--hm-gut);
+}
+.hm-list-card {
+  position: relative; overflow: hidden; border-radius: 20px; background: #fff;
+  display: flex; flex-direction: column; min-height: 0;
+  padding: clamp(28px, 4vw, 56px) clamp(24px, 4vw, 60px) 0;
+}
+.hm-list-k { flex: 0 0 auto; margin: 0 0 12px; font-size: 21px; font-weight: 600; letter-spacing: -0.01em; color: var(--hm-ink); }
+/* the window the list moves in: hm.js sets --y so the live name sits a third
+   of the way down it; both edges fade so names arrive and leave softly */
+.hm-list-win {
+  position: relative; flex: 1 1 auto; min-height: 0; overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, transparent, #000 14%, #000 70%, transparent);
+  mask-image: linear-gradient(to bottom, transparent, #000 14%, #000 70%, transparent);
+}
+.hm-list-names { transition: transform .6s var(--hm-ease); transform: translateY(var(--y, 0px)); }
+.hm-list-names li {
+  font-size: clamp(30px, 3.1vw, 46px); line-height: 1.28; font-weight: 600; letter-spacing: -0.025em;
+  color: #d7dcea; transition: color .4s;
+}
+.hm-list-names li.is-on { color: var(--hm-ink); }
+.hm-list-media { position: relative; overflow: hidden; border-radius: 20px; background: #10183a; }
+.hm-list-media figure { position: absolute; inset: 0; opacity: 0; transition: opacity .7s var(--hm-ease); }
+.hm-list-media figure.is-on { opacity: 1; }
+.hm-list-media img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.06); transition: transform 1.6s var(--hm-ease); }
+.hm-list-media figure.is-on img { transform: none; }
+.hm-list-media figcaption {
+  position: absolute; right: 16px; bottom: 16px; padding: 9px 14px; border-radius: 10px;
+  font-size: 15px; font-weight: 500; color: #fff; background: rgba(7, 14, 38, .56);
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+}
+
+/* ======================================================================
+   8 · MEMBER WALL AND COUNTER · a centred statement, seven columns of
+   photographs drifting against each other, then a rolling figure
+   ====================================================================== */
+.hm-wall { padding: clamp(88px, 10vw, 150px) 0 clamp(80px, 9vw, 130px); background: var(--hm-paper); overflow: hidden; }
+.hm-wall-head { padding: 0 var(--hm-gut); text-align: center; }
+.hm .hm-wall-h { font-size: clamp(40px, 5.4vw, 84px); }
+.hm .hm-wall-h .ph-display-lead { font-size: .44em; line-height: 1.3; }
+.hm-wall-cols {
+  display: grid; grid-template-columns: repeat(7, minmax(0, 1fr)); gap: 10px;
+  margin: clamp(56px, 6vw, 90px) var(--hm-gut) 0; height: clamp(560px, 70vw, 900px); overflow: hidden;
+  -webkit-mask-image: linear-gradient(to bottom, #000 72%, transparent);
+  mask-image: linear-gradient(to bottom, #000 72%, transparent);
+}
+.hm-wall-col { display: flex; flex-direction: column; gap: 10px; will-change: transform; }
+.hm-wall-col:nth-child(even) { margin-top: 36px; }
+.hm-wall-col img { width: 100%; aspect-ratio: 3 / 4; object-fit: cover; border-radius: 12px; background: #e6e9f2; }
+.hm-count { margin-top: clamp(40px, 5vw, 72px); text-align: center; }
+.hm-count-digits { display: inline-flex; gap: 6px; }
+.hm-count-digits .sep { width: 8px; }
+.hm-dg {
+  width: clamp(34px, 3.8vw, 56px); height: clamp(52px, 5.6vw, 82px); overflow: hidden; border-radius: 8px;
+  background: var(--hm-deep); color: #fff;
+}
+.hm-dg span {
+  display: flex; flex-direction: column; transition: transform 2.2s var(--hm-ease);
+  transform: translateY(calc(var(--d, 0) * -10%));
+}
+.hm-dg span i {
+  font-style: normal; height: clamp(52px, 5.6vw, 82px); display: grid; place-items: center;
+  font-size: clamp(30px, 3.4vw, 50px); font-weight: 600; font-variant-numeric: tabular-nums;
+}
+.hm-count-k { margin: 18px 0 0; font-size: 17px; color: var(--hm-body); }
+
+/* ======================================================================
+   9 · QUIZ CARD · a deep card, copy left and photograph right
+   ====================================================================== */
+.hm-cta { padding: 0 var(--hm-gut) clamp(40px, 5vw, 72px); background: var(--hm-paper); }
+.hm-cta-card {
+  display: grid; grid-template-columns: minmax(0, 5fr) minmax(0, 7fr); min-height: 480px;
+  border-radius: 24px; overflow: hidden; background: var(--hm-deep); color: #fff;
+}
+.hm-cta-copy { display: flex; flex-direction: column; justify-content: space-between; gap: 28px; padding: clamp(32px, 4vw, 56px); }
+.hm .hm-cta-h { font-size: clamp(36px, 3.6vw, 56px); }
+.hm .hm-cta-h .ph-display-lead { font-size: .5em; line-height: 1.3; }
+.hm-cta-copy p { margin: 0; font-size: 17px; line-height: 1.55; color: rgba(255, 255, 255, .68); max-width: 34ch; }
+.hm-cta-copy .hm-btn { align-self: flex-start; }
+.hm-cta-card > img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ======================================================================
+   10 · WHICH PHENOME · a fan of five products over a centred question
+   ====================================================================== */
+.hm-which { padding: clamp(56px, 6vw, 96px) var(--hm-gut) clamp(88px, 9vw, 140px); background: var(--hm-paper); text-align: center; }
+.hm-which-fan { position: relative; height: clamp(200px, 22vw, 320px); max-width: 980px; margin: 0 auto 12px; }
+.hm-which-fan img {
+  position: absolute; top: 50%; left: 50%; width: 30%; height: auto;
+  transform: translate(calc(-50% + var(--x)), calc(-50% + var(--y))) rotate(var(--r)) scale(var(--s, 1));
+  transition: transform .8s var(--hm-ease); filter: drop-shadow(0 18px 22px rgba(16, 33, 75, .14));
+}
+.hm-which-fan img:nth-child(1) { --x: -118%; --y: 10%; --r: -10deg; --s: .9; }
+.hm-which-fan img:nth-child(2) { --x: -58%; --y: -4%; --r: -5deg; }
+.hm-which-fan img:nth-child(3) { --x: 0%; --y: -10%; --r: 0deg; --s: 1.1; z-index: 2; }
+.hm-which-fan img:nth-child(4) { --x: 58%; --y: -4%; --r: 5deg; width: 17%; }
+.hm-which-fan img:nth-child(5) { --x: 118%; --y: 10%; --r: 10deg; --s: .9; }
+.hm-which:hover .hm-which-fan img:nth-child(1) { --x: -132%; }
+.hm-which:hover .hm-which-fan img:nth-child(5) { --x: 132%; }
+.hm .hm-which-h { font-size: clamp(38px, 4.8vw, 72px); }
+.hm .hm-which-h .ph-display-lead { font-size: .44em; line-height: 1.3; }
+.hm-which-act { display: flex; flex-direction: column; align-items: center; gap: 18px; margin-top: 34px; }
+
+/* ======================================================================
+   11 · FOUR PINNED CHAPTERS · full screen photographs change under a
+   sticky stage; the tab row at the foot fills as each chapter is read
+   ====================================================================== */
+.hm-story { position: relative; height: 440vh; background: var(--hm-deep); }
+.hm-story-stage { position: sticky; top: var(--hm-nav); height: calc(100svh - var(--hm-nav)); overflow: hidden; color: #fff; }
+.hm-story-img { position: absolute; inset: 0; opacity: 0; transition: opacity 1s var(--hm-ease); }
+.hm-story-img.is-on { opacity: 1; }
+.hm-story-img img { width: 100%; height: 100%; object-fit: cover; transform: scale(1.08); transition: transform 2.4s var(--hm-ease); }
+.hm-story-img.is-on img { transform: none; }
+.hm-story-stage::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  background: linear-gradient(to right, rgba(4, 9, 28, .8), rgba(4, 9, 28, .25) 62%, rgba(4, 9, 28, .1)),
+              linear-gradient(to top, rgba(4, 9, 28, .7), rgba(4, 9, 28, 0) 40%);
+}
+.hm-story-copy { position: absolute; z-index: 2; left: var(--hm-gut); bottom: clamp(110px, 16vh, 170px); width: min(620px, calc(100% - 2 * var(--hm-gut))); }
+.hm-story-copy article { position: absolute; left: 0; bottom: 0; width: 100%; opacity: 0; transform: translateY(24px); pointer-events: none; transition: opacity .7s var(--hm-ease), transform .9s var(--hm-ease); }
+.hm-story-copy article.is-on { opacity: 1; transform: none; pointer-events: auto; }
+.hm-story-copy .ph-display { font-size: clamp(42px, 5.4vw, 84px); }
+.hm-story-copy .ph-display-lead { font-size: .44em; line-height: 1.3; }
+.hm-story-copy p { margin: 20px 0 22px; max-width: 36ch; font-size: clamp(17px, 1.3vw, 20px); line-height: 1.55; color: rgba(255, 255, 255, .76); }
+.hm-story-tabs {
+  position: absolute; z-index: 2; left: var(--hm-gut); right: var(--hm-gut); bottom: 32px;
+  display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 16px;
+}
+.hm-story-tabs button {
+  border: 0; background: none; cursor: pointer; padding: 16px 0 0; text-align: left;
+  font: inherit; font-size: 16px; font-weight: 500; color: rgba(255, 255, 255, .6); position: relative;
+}
+.hm-story-tabs button.is-on { color: #fff; }
+.hm-story-tabs i { position: absolute; left: 0; right: 0; top: 0; height: 2px; background: rgba(255, 255, 255, .24); overflow: hidden; }
+.hm-story-tabs i::after { content: ""; position: absolute; inset: 0; background: #fff; transform-origin: left; transform: scaleX(var(--f, 0)); }
+
+/* ======================================================================
+   12 · JOURNAL · three photo cards with a date line
+   ====================================================================== */
+.hm-journal { padding: clamp(80px, 9vw, 130px) var(--hm-gut); background: #fff; }
+.hm-journal-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; margin-top: clamp(32px, 3.4vw, 48px); }
+.hm-post { display: flex; flex-direction: column; text-decoration: none; color: var(--hm-ink); }
+.hm-post img { width: 100%; aspect-ratio: 4 / 3; object-fit: cover; border-radius: 16px; transition: transform .8s var(--hm-ease); }
+.hm-post:hover img { transform: scale(1.02); }
+.hm-post h3 { margin: 20px 0 6px; font-size: clamp(20px, 1.6vw, 24px); line-height: 1.25; font-weight: 600; letter-spacing: -0.015em; }
+.hm-post time { font-size: 15px; color: var(--hm-body); }
+
+/* ======================================================================
+   13 · KEEP EXPLORING · deep navy, three tall tiles and a row of pills
+   ====================================================================== */
+.hm-more { padding: clamp(80px, 9vw, 130px) var(--hm-gut); background: var(--hm-deep); }
+.hm-more-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 12px; margin-top: clamp(32px, 3.4vw, 48px); }
+.hm-tile { position: relative; overflow: hidden; border-radius: 16px; text-decoration: none; }
+.hm-tile img { width: 100%; aspect-ratio: 4 / 5; object-fit: cover; transition: transform .9s var(--hm-ease); }
+.hm-tile:hover img { transform: scale(1.04); }
+.hm-tile span {
+  position: absolute; left: 16px; bottom: 16px; padding: 12px 18px; border-radius: 12px;
+  background: #fff; color: var(--hm-ink); font-size: 21px; font-weight: 600; letter-spacing: -0.01em;
+}
+.hm-more-pills { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 28px; }
+.hm-more-pills a {
+  padding: 13px 20px; border-radius: 999px; border: 1px solid rgba(255, 255, 255, .28);
+  color: #fff; font-size: 17px; font-weight: 500; text-decoration: none; transition: background-color .3s, border-color .3s;
+}
+.hm-more-pills a:hover { background: rgba(255, 255, 255, .1); border-color: #fff; }
+
+/* ---- scroll reveal for the plain blocks ------------------------------- */
+.lab-js .hm [data-hm-rv] { opacity: 0; transform: translateY(30px); transition: opacity .9s var(--hm-ease), transform 1.1s var(--hm-ease); }
+.lab-js .hm [data-hm-rv].is-in { opacity: 1; transform: none; }
+
+/* ---- small screens, part two ----------------------------------------- */
+@media (max-width: 900px) {
+  .hm-list { height: calc(var(--n) * 22vh + 100svh); }
+  .hm-list-stage { grid-template-columns: 1fr; grid-template-rows: auto 1fr; }
+  .hm-list-card { height: 38svh; padding: 22px; }
+  .hm-list-names li { font-size: 28px; }
+  .hm-wall-cols { grid-template-columns: repeat(4, minmax(0, 1fr)); height: 620px; }
+  .hm-wall-col:nth-child(n + 5) { display: none; }
+  .hm-dg { width: 26px; height: 42px; border-radius: 6px; }
+  .hm-dg span i { height: 42px; font-size: 24px; }
+  .hm-count-digits { gap: 3px; }
+  .hm-count-digits .sep { width: 3px; }
+  .hm-cta-card { grid-template-columns: 1fr; }
+  .hm-cta-card > img { aspect-ratio: 4 / 3; height: auto; order: -1; }
+  .hm-which-fan img { width: 38%; }
+  .hm-which-fan img:nth-child(4) { width: 22%; }
+  .hm-story-tabs { grid-template-columns: repeat(2, minmax(0, 1fr)); row-gap: 4px; bottom: 20px; }
+  .hm-story-copy { bottom: 150px; }
+  .hm-journal-grid, .hm-more-grid { grid-template-columns: 1fr; }
+  .hm-tile img { aspect-ratio: 16 / 11; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .hm-marq-row { animation-duration: 240s; }
+}
