@@ -103,10 +103,12 @@
   }
 
   /* ---- the one scroll loop ------------------------------------------- */
-  var queued = false;
+  var queued = false, pilled = null;
   function frame() {
     queued = false;
     var vh = window.innerHeight;
+    var pill = window.scrollY > 24;
+    if (pill !== pilled) { pilled = pill; document.documentElement.classList.toggle('uhx-pill', pill); }
     if (sci && !reduce) paintSci(vh);
     if (bat) paintBat(vh);
   }

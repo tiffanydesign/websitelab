@@ -394,3 +394,43 @@ html:not(.lab-js) .uhx-bat-title { display: none; }
 @media (prefers-reduced-motion: reduce) {
   .uhx *, .uhx *::before, .uhx *::after { animation: none !important; transition: none !important; }
 }
+
+/* ======================================================================
+   9 · THE NAV AS A PILL · on this page only. Past the first few pixels
+   the bar lets go of the edges and floats as a rounded glass pill, as on
+   the reference. The bar keeps its 44px of layout; only its paint moves,
+   onto ::before, and a clip-path draws the pill, so nothing below shifts.
+   An open menu or search puts the full bar back.
+   ====================================================================== */
+body.lab:has(.uhx) .ph-nav { isolation: isolate; }
+body.lab:has(.uhx) .ph-nav::before {
+  content: ""; position: absolute; left: 0; right: 0; top: 0; bottom: -14px; z-index: -1;
+  background: rgba(255,255,255,.8);
+  -webkit-backdrop-filter: saturate(180%) blur(20px); backdrop-filter: saturate(180%) blur(20px);
+  clip-path: inset(0 0 14px 0 round 0);
+  transition: clip-path .6s var(--ease-frosted-out, cubic-bezier(.16,1,.3,1)), box-shadow .6s;
+  pointer-events: none;
+}
+html.uhx-pill:not(.ph-menu-open) body.lab .ph-nav {
+  background: transparent; -webkit-backdrop-filter: none; backdrop-filter: none;
+}
+html.uhx-pill:not(.ph-menu-open) body.lab .ph-nav::before {
+  clip-path: inset(8px max(16px, calc(50% - 640px)) 0 max(16px, calc(50% - 640px)) round 999px);
+  background: rgba(255,255,255,.72);
+}
+html.uhx-pill:not(.ph-menu-open) body.lab .ph-nav > .ph-nav-inner { transform: translateY(8px); }
+body.lab:has(.uhx) .ph-nav > .ph-nav-inner { transition: transform .6s var(--ease-frosted-out, cubic-bezier(.16,1,.3,1)); }
+/* a hairline to lift the pill off white sections, drawn by a second layer
+   so the glass clip stays one shape */
+body.lab:has(.uhx) .ph-nav::after {
+  content: ""; position: absolute; top: 8px; bottom: -6px; z-index: -1; pointer-events: none;
+  left: max(16px, calc(50% - 640px)); right: max(16px, calc(50% - 640px)); border-radius: 999px;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.06), 0 10px 30px rgba(10,20,50,.08);
+  opacity: 0; transition: opacity .5s;
+}
+html.uhx-pill:not(.ph-menu-open) body.lab .ph-nav::after { opacity: 1; }
+@media (max-width: 900px) {
+  html.uhx-pill:not(.ph-menu-open) body.lab .ph-nav::before { clip-path: inset(6px 8px 0 8px round 999px); }
+  body.lab:has(.uhx) .ph-nav::after { left: 8px; right: 8px; top: 6px; bottom: -8px; }
+  html.uhx-pill:not(.ph-menu-open) body.lab .ph-nav > .ph-nav-inner { transform: translateY(6px); }
+}
