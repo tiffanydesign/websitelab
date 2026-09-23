@@ -34,6 +34,7 @@
 <link href="/websitelab/devices/ring-lab/sup.css" rel="stylesheet"/>
 <link href="/websitelab/devices/ring-lab/ndx.css" rel="stylesheet"/>
 <link href="/websitelab/devices/ring-lab/ndz.css" rel="stylesheet"/>
+<link href="/websitelab/devices/ring-lab/uhx.css" rel="stylesheet"/>
 <!-- Motion states that start hidden are keyed to this class, so without
      script the page is simply shown. Set before first paint. -->
 <script>document.documentElement.classList.add('lab-js');</script>
@@ -41,6 +42,239 @@
 <body class="lab">
 <div data-ph-nav=""></div>
 <main>
+
+<!-- ========================================================================
+     0 · THE HOME OPENER · the first screens of ultrahuman.com/se, section for
+     section and in the same order, told with Phenome's own pictures and films:
+     the inset film hero, the cards that grow out of the centre, the battery
+     arc and its counter, the black measures carousel, the two product blocks
+     where the light one rides over the dark one, the app film, the globe and
+     the range marquee. Styles in uhx.css, behaviour in uhx.js.
+     ======================================================================== -->
+<div class="uhx" data-uhx="">
+
+<!-- 0.1 · hero -->
+<section class="uhx-hero" aria-labelledby="uhx-hero-h">
+<div class="uhx-hero-media">
+<video autoplay="" muted="" loop="" playsinline="" preload="auto" poster="/websitelab/assets/lab/uhx/hero.webp"><source src="/websitelab/assets/lab/uhx/hero.mp4" type="video/mp4"/></video>
+</div>
+<div class="uhx-hero-copy">
+<p class="uhx-hero-eyebrow">PhenomeTech Ring</p>
+<h1 class="uhx-hero-h1" id="uhx-hero-h">Read the whole day.</h1>
+<p class="uhx-hero-sub">A week on one charge, read against your genome.</p>
+<div class="uhx-hero-ctas">
+<a class="uhx-pill is-blue" href="/phenome-store/store/phenometech-ring/">Buy now</a>
+<a class="uhx-pill is-glass" href="#uhx-meas">Explore</a>
+</div>
+</div>
+</section>
+
+<!-- 0.2 · science, the cards grow out of the centre -->
+<section class="uhx-sci" aria-labelledby="uhx-sci-h">
+<div class="uhx-sci-stage">
+<figure class="uhx-sci-card" data-d="0.0" style="--x:9.0;--y:29.6;--w:12.8;--r:184/202"><img src="/websitelab/assets/lab/uhx/sci-1.webp" alt="The ring in gold on blue silk" loading="lazy" decoding="async"/></figure>
+<figure class="uhx-sci-card" data-d="0.06" style="--x:14.2;--y:26.2;--w:17.9;--r:258/133"><img src="/websitelab/assets/lab/uhx/sci-2.webp" alt="A runner wearing the ring" loading="lazy" decoding="async"/></figure>
+<figure class="uhx-sci-card" data-d="0.1" style="--x:68.0;--y:20.2;--w:16.0;--r:1/1"><img src="/websitelab/assets/lab/uhx/sci-3.webp" alt="A hand wearing the ring" loading="lazy" decoding="async"/></figure>
+<figure class="uhx-sci-card" data-d="0.12" style="--x:10.3;--y:66.2;--w:18.8;--r:271/173"><img src="/websitelab/assets/lab/uhx/sci-4.webp" alt="Phenome testing kits" loading="lazy" decoding="async"/></figure>
+<figure class="uhx-sci-card" data-d="0.02" style="--x:74.4;--y:65.6;--w:12.8;--r:184/177"><img src="/websitelab/assets/lab/uhx/sci-6b.webp" alt="Phenome supplements" loading="lazy" decoding="async"/></figure>
+<figure class="uhx-sci-card" data-d="0.08" style="--x:77.3;--y:61.3;--w:17.9;--r:258/133"><img src="/websitelab/assets/lab/uhx/sci-5.webp" alt="The ring in pink ceramic" loading="lazy" decoding="async"/></figure>
+</div>
+<div class="uhx-sci-text">
+<h2 class="uhx-title" id="uhx-sci-h">Every reading, built on evidence.</h2>
+<p class="uhx-body">The science behind Phenome, explained.</p>
+<a class="uhx-pill is-ink" href="/phenome-store/store/comprehensive-genomic/">Read the science</a>
+</div>
+</section>
+
+<!-- 0.3 · battery -->
+<section class="uhx-bat" data-days="7" aria-label="Battery life">
+<div class="uhx-bat-text">
+<div class="uhx-bat-title"><h2 class="uhx-title">Category-defining battery life</h2></div>
+<div class="uhx-bat-claim">
+<span class="uhx-bat-side">Get up to</span>
+<p class="uhx-bat-stat" style="margin:0"><span class="uhx-bat-num" aria-hidden="true">7</span><span aria-hidden="true">days</span><span class="lab-sr" style="position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)">7 days</span></p>
+<span class="uhx-bat-side">Battery life</span>
+</div>
+</div>
+<div class="uhx-bat-ring">
+<svg class="uhx-bat-arc" viewBox="0 0 1600 1530" preserveAspectRatio="none" aria-hidden="true">
+<defs><linearGradient id="uhx-arc-g" x1="0" x2="1" y1="0" y2="0">
+<stop offset="0" stop-color="#2FAECD"/><stop offset=".38" stop-color="#3FB9C6"/><stop offset=".62" stop-color="#435BA1"/><stop offset="1" stop-color="#203A85"/>
+</linearGradient></defs>
+<path class="uhx-arc-wipe glow" d="M-185 765A985 985 0 0 1 1785 765" pathLength="1" stroke="url(#uhx-arc-g)" stroke-width="112" stroke-dasharray="1 1" stroke-dashoffset="0"/>
+<path class="uhx-arc-wipe" d="M-185 765A985 985 0 0 1 1785 765" pathLength="1" stroke="url(#uhx-arc-g)" stroke-width="96" stroke-dasharray="1 1" stroke-dashoffset="0"/>
+</svg>
+<img src="/websitelab/assets/lab/uhx/bat-ring.webp" alt="The PhenomeTech Ring seen from above" width="1600" height="1530" loading="lazy" decoding="async"/>
+</div>
+</section>
+
+<!-- 0.4 · measures, black, tabs over a looping carousel -->
+<section class="uhx-meas" id="uhx-meas" aria-labelledby="uhx-meas-h">
+<div class="uhx-meas-head">
+<h2 class="uhx-title" id="uhx-meas-h">Beyond measure</h2>
+<p class="uhx-body">Every signal the ring reads, and what each one tells you about the day ahead.</p>
+</div>
+<div class="uhx-tabs" role="tablist" aria-label="What the ring measures">
+<span class="uhx-tab-hl" aria-hidden="true"></span>
+<button class="uhx-tab" id="uhx-tab-act" role="tab" type="button" aria-controls="uhx-slide-act" aria-selected="true">Activity</button>
+<button class="uhx-tab" id="uhx-tab-slp" role="tab" type="button" aria-controls="uhx-slide-slp" aria-selected="false">Sleep</button>
+<button class="uhx-tab" id="uhx-tab-wko" role="tab" type="button" aria-controls="uhx-slide-wko" aria-selected="false">Workouts</button>
+<button class="uhx-tab" id="uhx-tab-rec" role="tab" type="button" aria-controls="uhx-slide-rec" aria-selected="false">Recovery</button>
+<button class="uhx-tab" id="uhx-tab-cyc" role="tab" type="button" aria-controls="uhx-slide-cyc" aria-selected="false">Cycles</button>
+</div>
+<div class="uhx-car">
+<div class="uhx-slide" id="uhx-slide-act" role="tabpanel" aria-labelledby="uhx-tab-act" style="--o:0">
+<div class="uhx-slide-media">
+<img src="/websitelab/assets/lab/uhx/m-act.webp" alt="" width="1376" height="768" loading="lazy" decoding="async" draggable="false"/>
+<div class="uhx-glass" aria-hidden="true"><p class="uhx-glass-k">Steps today</p><p class="uhx-glass-v">9,958<small>/10,000</small></p><svg viewBox="0 0 240 64" aria-hidden="true"><path d="M1.2 64V62.5M3.8 64V62.5M6.2 64V62.5M8.8 64V62.5M11.2 64V62.5M13.8 64V62.5M16.2 64V62.5M18.8 64V62.5M21.2 64V62.5M23.8 64V62.5M26.2 64V62.5M28.8 64V62.5M31.2 64V62.5M33.8 64V62.5M36.2 64V62.5M38.8 64V62.5M41.2 64V62.5M43.8 64V62.5M46.2 64V62.5M48.8 64V62.5M51.2 64V62.5M53.8 64V62.5M56.2 64V62.5M58.8 64V62.5M61.2 64V62.5M63.8 64V62.5M66.2 64V62.5M68.8 64V56.7M71.2 64V57.6M73.8 64V51.6M76.2 64V57.2M78.8 64V50.2M81.2 64V51.4M83.8 64V55.5M86.2 64V46.1M88.8 64V54.6M91.2 64V44.6M93.8 64V52.4M96.2 64V51.1M98.8 64V40.5M101.2 64V26.6M103.8 64V47.9M106.2 64V43.8M108.8 64V28.5M111.2 64V15.5M113.8 64V28.4M116.2 64V34.8M118.8 64V11.8M121.2 64V48.2M123.8 64V16.4M126.2 64V39.0M128.8 64V44.9M131.2 64V46.3M133.8 64V39.9M136.2 64V23.1M138.8 64V45.9M141.2 64V33.9M143.8 64V33.5M146.2 64V42.3M148.8 64V37.9M151.2 64V51.7M153.8 64V51.5M156.2 64V46.4M158.8 64V29.0M161.2 64V34.7M163.8 64V36.2M166.2 64V21.0M168.8 64V24.3M171.2 64V30.7M173.8 64V6M176.2 64V11.7M178.8 64V36.8M181.2 64V26.6M183.8 64V34.1M186.2 64V30.5M188.8 64V41.0M191.2 64V53.2M193.8 64V48.8M196.2 64V58.9M198.8 64V58.6M201.2 64V58.8M203.8 64V60.9M206.2 64V60.8M208.8 64V61.4M211.2 64V61.2M213.8 64V61.3M216.2 64V61.5M218.8 64V62.5M221.2 64V62.5M223.8 64V62.5M226.2 64V62.5M228.8 64V62.5M231.2 64V62.5M233.8 64V62.5M236.2 64V62.5M238.8 64V62.5" stroke="rgba(255,255,255,.85)" stroke-width="1.2" fill="none"/><path d="M0 63.5H240" stroke="rgba(255,255,255,.3)" stroke-dasharray="2 3"/></svg><div class="uhx-glass-ax"><span>12 AM</span><span>6 AM</span><span>12 PM</span><span>6 PM</span><span>12 AM</span></div></div>
+</div>
+<div class="uhx-slide-copy"><h3 class="uhx-slide-t">Movement, all day</h3><p class="uhx-slide-d">The Movement score is built for the whole day, not just the workout, from your steps, active minutes and the energy you spend between them.</p></div>
+</div>
+<div class="uhx-slide" id="uhx-slide-slp" role="tabpanel" aria-labelledby="uhx-tab-slp" style="--o:1">
+<div class="uhx-slide-media">
+<img src="/websitelab/assets/lab/uhx/m-slp.webp" alt="" width="1376" height="768" loading="lazy" decoding="async" draggable="false"/>
+<div class="uhx-glass" aria-hidden="true"><p class="uhx-glass-k">Sleep stages</p><p class="uhx-glass-v">7h 42m<small>in bed 8h 05m</small></p><svg viewBox="0 0 240 64" aria-hidden="true"><path d="M0 8H240" stroke="rgba(255,255,255,.14)"/><path d="M0 24H240" stroke="rgba(255,255,255,.14)"/><path d="M0 40H240" stroke="rgba(255,255,255,.14)"/><path d="M0 56H240" stroke="rgba(255,255,255,.14)"/><path d="M0 8H10.9V40H21.8V56H32.7V56H43.6V40H54.5V24H65.5V40H76.4V56H87.3V40H98.2V24H109.1V24H120.0V40H130.9V56H141.8V40H152.7V24H163.6V40H174.5V40H185.5V24H196.4V8H207.3V24H218.2V40H229.1V24H240.0V8" stroke="#fff" stroke-width="1.6" fill="none" stroke-linejoin="round"/></svg><div class="uhx-glass-ax"><span>11 PM</span><span>1 AM</span><span>3 AM</span><span>5 AM</span><span>7 AM</span></div></div>
+</div>
+<div class="uhx-slide-copy"><h3 class="uhx-slide-t">Your sleep, in stages</h3><p class="uhx-slide-d">Every night is broken into awake, REM, light and deep sleep, so you can see how long you slept and how well it restored you.</p></div>
+</div>
+<div class="uhx-slide" id="uhx-slide-wko" role="tabpanel" aria-labelledby="uhx-tab-wko" style="--o:2">
+<div class="uhx-slide-media">
+<img src="/websitelab/assets/lab/uhx/m-wko.webp" alt="" width="1376" height="768" loading="lazy" decoding="async" draggable="false"/>
+<div class="uhx-glass" aria-hidden="true"><p class="uhx-glass-k">Heart rate zones</p><p class="uhx-glass-v">42 min<small>avg 148 bpm</small></p><svg viewBox="0 0 240 64" aria-hidden="true"><rect x="22" y="4" width="74" height="7" rx="3.5" fill="rgba(255,255,255,0.35)"/><text x="0" y="11" fill="rgba(255,255,255,.7)" font-size="8" font-family="IBM Plex Mono, monospace">Z1</text><rect x="22" y="16" width="116" height="7" rx="3.5" fill="rgba(255,255,255,0.48)"/><text x="0" y="23" fill="rgba(255,255,255,.7)" font-size="8" font-family="IBM Plex Mono, monospace">Z2</text><rect x="22" y="28" width="189" height="7" rx="3.5" fill="rgba(255,255,255,0.61)"/><text x="0" y="35" fill="rgba(255,255,255,.7)" font-size="8" font-family="IBM Plex Mono, monospace">Z3</text><rect x="22" y="40" width="147" height="7" rx="3.5" fill="rgba(255,255,255,0.74)"/><text x="0" y="47" fill="rgba(255,255,255,.7)" font-size="8" font-family="IBM Plex Mono, monospace">Z4</text><rect x="22" y="52" width="84" height="7" rx="3.5" fill="rgba(255,255,255,0.87)"/><text x="0" y="59" fill="rgba(255,255,255,.7)" font-size="8" font-family="IBM Plex Mono, monospace">Z5</text></svg></div>
+</div>
+<div class="uhx-slide-copy"><h3 class="uhx-slide-t">Every session, counted</h3><p class="uhx-slide-d">Heart rate zones, training load and recovery time for each session, logged from the ring on your finger and nothing else.</p></div>
+</div>
+<div class="uhx-slide" id="uhx-slide-rec" role="tabpanel" aria-labelledby="uhx-tab-rec" style="--o:-2">
+<div class="uhx-slide-media">
+<img src="/websitelab/assets/lab/uhx/m-rec.webp" alt="" width="1376" height="768" loading="lazy" decoding="async" draggable="false"/>
+<div class="uhx-glass" aria-hidden="true"><p class="uhx-glass-k">Readiness</p><p class="uhx-glass-v">82<small>/100</small></p><svg viewBox="0 0 240 64" aria-hidden="true"><path d="M0.0 40.0 L5.0 36.9 L10.0 33.8 L15.0 30.9 L20.0 28.3 L25.0 26.3 L30.0 24.9 L35.0 24.3 L40.0 24.4 L45.0 25.2 L50.0 26.3 L55.0 27.8 L60.0 29.3 L65.0 30.8 L70.0 32.3 L75.0 33.7 L80.0 35.2 L85.0 36.8 L90.0 38.7 L95.0 40.9 L100.0 43.4 L105.0 45.9 L110.0 48.3 L115.0 50.2 L120.0 51.3 L125.0 51.3 L130.0 50.0 L135.0 47.4 L140.0 43.6 L145.0 39.0 L150.0 34.1 L155.0 29.3 L160.0 25.2 L165.0 22.0 L170.0 20.1 L175.0 19.3 L180.0 19.6 L185.0 20.4 L190.0 21.6 L195.0 22.4 L200.0 22.8 L205.0 22.4 L210.0 21.4 L215.0 20.1 L220.0 18.8 L225.0 18.1 L230.0 18.4 L235.0 20.1 L240.0 23.2" stroke="#fff" stroke-width="1.6" fill="none"/><path d="M0 63.5H240" stroke="rgba(255,255,255,.3)" stroke-dasharray="2 3"/></svg><div class="uhx-glass-ax"><span>Mon</span><span>Tue</span><span>Wed</span><span>Thu</span><span>Fri</span><span>Sat</span><span>Sun</span></div></div>
+</div>
+<div class="uhx-slide-copy"><h3 class="uhx-slide-t">Readiness, every morning</h3><p class="uhx-slide-d">Resting heart rate, heart rate variability and temperature, read overnight and turned into one number that tells you how hard to push today.</p></div>
+</div>
+<div class="uhx-slide" id="uhx-slide-cyc" role="tabpanel" aria-labelledby="uhx-tab-cyc" style="--o:-1">
+<div class="uhx-slide-media">
+<img src="/websitelab/assets/lab/uhx/m-cyc.webp" alt="" width="1376" height="768" loading="lazy" decoding="async" draggable="false"/>
+<div class="uhx-glass" aria-hidden="true"><p class="uhx-glass-k">Next period</p><p class="uhx-glass-v">in 13 days<small>day 14 of 28</small></p><svg viewBox="0 0 240 64" aria-hidden="true"><rect x="4.0" y="22" width="5" height="22" rx="2.5" fill="rgba(255,255,255,.9)"/><rect x="12.4" y="22" width="5" height="22" rx="2.5" fill="rgba(255,255,255,.9)"/><rect x="20.8" y="22" width="5" height="22" rx="2.5" fill="rgba(255,255,255,.9)"/><rect x="29.2" y="22" width="5" height="22" rx="2.5" fill="rgba(255,255,255,.9)"/><rect x="37.6" y="22" width="5" height="22" rx="2.5" fill="rgba(255,255,255,.9)"/><rect x="46.0" y="22" width="5" height="22" rx="2.5" fill="rgba(255,255,255,.28)"/><rect x="54.4" y="22" width="5" height="22" rx="2.5" fill="rgba(255,255,255,.28)"/><rect x="62.8" y="22" width="5" height="22" rx="2.5" fill="rgba(255,255,255,.28)"/><rect x="71.2" y="22" width="5" height="22" rx="2.5" fill="rgba(255,255,255,.28)"/><rect x="79.6" y="22" width="5" height="22" rx="2.5" fill="rgba(255,255,255,.28)"/><rect x="88.0" y="22" width="5" height="22" rx="2.5" fill="rgba(255,255,255,.28)"/><rect x="96.4" y="22" width="5" height="22" rx="2.5" fill="rgba(255,255,255,.28)"/><rect x="104.8" y="22" width="5" height="22" rx="2.5" fill="rgba(48,176,205,.95)"/><rect x="113.2" y="22" width="5" height="22" rx="2.5" fill="rgba(48,176,205,.95)"/><rect x="121.6" y="22" width="5" height="22" rx="2.5" fill="rgba(48,176,205,.95)"/><rect x="130.0" y="22" width="5" height="22" rx="2.5" fill="rgba(48,176,205,.95)"/><rect x="138.4" y="22" width="5" height="22" rx="2.5" fill="rgba(48,176,205,.95)"/><rect x="146.8" y="22" width="5" height="22" rx="2.5" fill="rgba(255,255,255,.28)"/><rect x="155.2" y="22" width="5" height="22" rx="2.5" fill="rgba(255,255,255,.28)"/><rect x="163.6" y="22" width="5" height="22" rx="2.5" fill="rgba(255,255,255,.28)"/><rect x="172.0" y="22" width="5" height="22" rx="2.5" fill="rgba(255,255,255,.28)"/><rect x="180.4" y="22" width="5" height="22" rx="2.5" fill="rgba(255,255,255,.28)"/><rect x="188.8" y="22" width="5" height="22" rx="2.5" fill="rgba(255,255,255,.28)"/><rect x="197.2" y="22" width="5" height="22" rx="2.5" fill="rgba(255,255,255,.28)"/><rect x="205.6" y="22" width="5" height="22" rx="2.5" fill="rgba(255,255,255,.28)"/><rect x="214.0" y="22" width="5" height="22" rx="2.5" fill="rgba(255,255,255,.28)"/><rect x="222.4" y="22" width="5" height="22" rx="2.5" fill="rgba(255,255,255,.28)"/><rect x="230.8" y="22" width="5" height="22" rx="2.5" fill="rgba(255,255,255,.28)"/><rect x="116" y="14" width="1" height="38" fill="#fff"/></svg><div class="uhx-glass-ax"><span>Day 1</span><span>Day 14</span><span>Day 28</span></div></div>
+</div>
+<div class="uhx-slide-copy"><h3 class="uhx-slide-t">Your cycle, predicted</h3><p class="uhx-slide-d">Skin temperature trends map the phases of your cycle and predict what comes next, with the fertile window marked ahead of time.</p></div>
+</div>
+</div>
+<div class="uhx-dots">
+<button class="uhx-dot is-on" type="button" aria-label="Show Activity"><span class="uhx-dot-fill"></span></button>
+<button class="uhx-dot" type="button" aria-label="Show Sleep"><span class="uhx-dot-fill"></span></button>
+<button class="uhx-dot" type="button" aria-label="Show Workouts"><span class="uhx-dot-fill"></span></button>
+<button class="uhx-dot" type="button" aria-label="Show Recovery"><span class="uhx-dot-fill"></span></button>
+<button class="uhx-dot" type="button" aria-label="Show Cycles"><span class="uhx-dot-fill"></span></button>
+</div>
+</section>
+
+<!-- 0.5 · the two rings; the light block rides up over the dark one -->
+<section class="uhx-ff is-dark" aria-labelledby="uhx-ti-h">
+<div class="uhx-ff-inner">
+<h2 class="uhx-ff-head" id="uhx-ti-h">PhenomeTech Ring<span>Titanium, turned for every day</span></h2>
+<div class="uhx-ff-grid">
+<div class="uhx-rail">
+<div class="uhx-rail-media"><video muted="" loop="" playsinline="" preload="metadata" poster="/websitelab/assets/lab/uhx/ti.webp"><source src="/websitelab/assets/lab/uhx/ti.mp4" type="video/mp4"/></video></div>
+<div class="uhx-rail-meta"><p class="uhx-rail-name">Titanium Ring</p>
+<div class="uhx-rail-ctas"><a class="uhx-pill is-blue" href="/phenome-store/store/phenometech-ring/">Buy now</a><a class="uhx-pill is-line-d" href="#sam-colour">Learn more</a></div></div>
+</div>
+<div class="uhx-panels">
+<div class="uhx-panel uhx-panel-intro"><p>The lightest PhenomeTech Ring: grade 5 aerospace titanium, brushed to hide a day&rsquo;s wear, in gold, graphite or silver.</p></div>
+<div class="uhx-panel uhx-panel-metric">
+<div class="uhx-metric-decor" aria-hidden="true"><svg viewBox="0 0 600 460" preserveAspectRatio="xMidYMid meet"><ellipse class="uhx-dash a" cx="300" cy="338" rx="274" ry="104"/><ellipse class="uhx-dash b" cx="300" cy="316" rx="192" ry="62"/></svg></div>
+<p class="uhx-metric-eyebrow">About</p>
+<p class="uhx-metric-value">4 g</p>
+<p class="uhx-metric-cap">At size 8, light enough to keep on every night</p>
+</div>
+<div class="uhx-panel uhx-panel-feats">
+<p class="uhx-feat-eyebrow">A closer look at the Titanium Ring</p>
+<ul class="uhx-feats">
+<li class="uhx-feat"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7.5" width="16" height="9" rx="2.5"/><path d="M21 10.5v3"/><path d="M6 12h7"/></svg><div><p class="uhx-feat-t">Up to 7 days of battery</p><p class="uhx-feat-b">A full week of wear on a single charge, sleep and workouts included.</p></div></li>
+<li class="uhx-feat"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="4" y="6" width="16" height="12" rx="5"/><path d="M4 11h16"/></svg><div><p class="uhx-feat-t">Full in about 90 minutes</p><p class="uhx-feat-b">Drop it into the charging case at the end of the day and it is ready again before the morning.</p></div></li>
+<li class="uhx-feat"><svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="8.5"/><circle cx="12" cy="12" r="5.5"/></svg><div><p class="uhx-feat-t">Grade 5 aerospace titanium</p><p class="uhx-feat-b">Turned from one piece and brushed, so a day of wear does not show.</p></div></li>
+<li class="uhx-feat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M12 3.5c3.5 4.4 6 7.7 6 10.6a6 6 0 0 1-12 0c0-2.9 2.5-6.2 6-10.6z"/></svg><div><p class="uhx-feat-t">Water resistant to 100 metres</p><p class="uhx-feat-b">Swim, shower or sit in the sauna. The ring stays on and keeps reading.</p></div></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="uhx-ff is-light" aria-labelledby="uhx-ce-h">
+<div class="uhx-ff-inner">
+<h2 class="uhx-ff-head" id="uhx-ce-h">PhenomeTech Ceramic Ring<span>Colour you can wear to bed</span></h2>
+<div class="uhx-ff-grid">
+<div class="uhx-rail">
+<div class="uhx-rail-media"><video muted="" loop="" playsinline="" preload="metadata" poster="/websitelab/assets/lab/uhx/ce.webp"><source src="/websitelab/assets/lab/uhx/ce.mp4" type="video/mp4"/></video></div>
+<div class="uhx-rail-meta"><p class="uhx-rail-name">Ceramic Ring</p>
+<div class="uhx-rail-ctas"><a class="uhx-pill is-blue" href="/phenome-store/store/phenometech-ring/">Buy now</a><a class="uhx-pill is-line" href="#sam-colour">Learn more</a></div></div>
+</div>
+<div class="uhx-panels">
+<div class="uhx-panel uhx-panel-intro"><p>The same sensors in a glazed ceramic shell, in Arctic White, Onyx or Blush, with a medical grade inner shell against the skin.</p></div>
+<div class="uhx-panel uhx-panel-metric">
+<div class="uhx-metric-decor" aria-hidden="true"><canvas data-ripple=""></canvas></div>
+<p class="uhx-metric-eyebrow">Water resistant to</p>
+<p class="uhx-metric-value">100 m</p>
+<p class="uhx-metric-cap">For the swim, the shower and the sauna</p>
+</div>
+<div class="uhx-panel uhx-panel-feats">
+<p class="uhx-feat-eyebrow">A closer look at the Ceramic Ring</p>
+<ul class="uhx-feats">
+<li class="uhx-feat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3 9l9-4 9 4-9 4z"/><path d="M3 13l9 4 9-4"/><path d="M3 17l9 4 9-4" opacity=".6"/></svg><div><p class="uhx-feat-t">Medical grade inner shell</p><p class="uhx-feat-b">Smooth against the skin, and comfortable enough to forget it is there at night.</p></div></li>
+<li class="uhx-feat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19c0-8 5-13 14-14-1 9-6 14-14 14z"/><path d="M5 19l7-7"/></svg><div><p class="uhx-feat-t">Three glazed finishes</p><p class="uhx-feat-b">Arctic White, Onyx and Blush, each fired so the colour goes all the way through.</p></div></li>
+<li class="uhx-feat"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M19 5c-6 0-11 4-12 12l-2 2"/><path d="M19 5c0 6-4 10-10 11"/><path d="M9 16l4-4"/></svg><div><p class="uhx-feat-t">About 6 g at size 8</p><p class="uhx-feat-b">Nothing to press into the back of your hand and no screen to wake you.</p></div></li>
+<li class="uhx-feat"><svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7.5" width="16" height="9" rx="2.5"/><path d="M21 10.5v3"/><path d="M6 12h7"/></svg><div><p class="uhx-feat-t">Up to 7 days of battery</p><p class="uhx-feat-b">The same week of wear, and the same pocket charging case.</p></div></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- 0.6 · the app, a film card -->
+<section class="uhx-app" aria-labelledby="uhx-app-h">
+<h2 class="uhx-title" id="uhx-app-h">The Phenome app, reimagined.</h2>
+<p class="uhx-body">Built to make every reading clearer and every recommendation worth acting on, with no subscription to keep it.</p>
+<div class="uhx-app-stores">
+<a class="uhx-pill is-line" href="/phenome-store/app/">App Store <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M16.4 12.6c0-2.6 2.1-3.8 2.2-3.9-1.2-1.8-3.1-2-3.7-2-1.6-.2-3.1.9-3.9.9-.8 0-2-.9-3.4-.9-1.7 0-3.3 1-4.2 2.6-1.8 3.1-.5 7.7 1.3 10.2.9 1.2 1.9 2.6 3.2 2.6 1.3-.1 1.8-.8 3.3-.8 1.6 0 2 .8 3.4.8 1.4 0 2.3-1.3 3.1-2.5 1-1.4 1.4-2.8 1.4-2.9-.1 0-2.7-1-2.7-4.1zM13.9 5c.7-.9 1.2-2 1-3.2-1 0-2.3.7-3 1.6-.7.8-1.2 2-1.1 3.1 1.2.1 2.3-.6 3.1-1.5z"/></svg></a>
+<a class="uhx-pill is-line" href="/phenome-store/app/">Google Play <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M3.6 1.8 13.8 12 3.6 22.2c-.4-.2-.6-.6-.6-1.1V2.9c0-.5.2-.9.6-1.1zm11.3 11.3 2.4 2.4-11 6.3 8.6-8.7zm3.6-3.5 3 1.7c.8.5.8 1.3 0 1.8l-3 1.7-2.6-2.6 2.6-2.6zM6.3 2.2l11 6.3-2.4 2.4-8.6-8.7z"/></svg></a>
+</div>
+<div class="uhx-film">
+<video muted="" loop="" playsinline="" preload="metadata" poster="/websitelab/assets/lab/uhx/app.webp"><source src="/websitelab/assets/lab/uhx/app.mp4" type="video/mp4"/></video>
+<button class="uhx-film-btn" type="button" aria-label="Pause the film">
+<svg class="i-play" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1l9 5-9 5z"/></svg>
+<svg class="i-pause" viewBox="0 0 12 12" aria-hidden="true"><path d="M2 1h3v10H2zM7 1h3v10H7z"/></svg>
+</button>
+</div>
+</section>
+
+<!-- 0.7 · the genome, on one system -->
+<section class="uhx-world" aria-labelledby="uhx-world-h">
+<div class="uhx-world-inner">
+<div class="uhx-world-copy">
+<h2 class="uhx-title" id="uhx-world-h">Your genome, read on a single system.</h2>
+<p class="uhx-body">All three billion letters, read once from a saliva sample and checked against eleven scientific sources. Order a kit and your sample does the rest.</p>
+<div class="uhx-stats">
+<div class="uhx-stat"><p class="uhx-stat-v" data-count="4.9" data-dec="1" data-suffix=" million">4.9 million</p><p class="uhx-stat-k">Differences in a typical genome</p></div>
+<div class="uhx-stat"><p class="uhx-stat-v" data-count="1.287" data-dec="3" data-suffix=" billion">1.287 billion</p><p class="uhx-stat-k">Known variants in our reference</p></div>
+</div>
+</div>
+<div class="uhx-globe">
+<canvas data-globe="" aria-hidden="true"></canvas>
+<div class="uhx-gcard" style="left:44%;top:16%"><p class="uhx-gcard-k">Sources per variant</p><p class="uhx-gcard-v">11</p><p class="uhx-gcard-l">Scientific databases</p></div>
+<div class="uhx-gcard b" style="left:36%;top:33%"><p class="uhx-gcard-k">Classified against</p><p class="uhx-gcard-v">ACMG</p><p class="uhx-gcard-l">The clinical standard</p></div>
+</div>
+</div>
+</section>
+
+<!-- 0.8 · the range -->
+<section class="uhx-mq" aria-labelledby="uhx-mq-h">
+<p class="uhx-mq-k" id="uhx-mq-h">The Phenome range</p>
+<div class="uhx-mq-view"><div class="uhx-mq-track"><a class="is-ring" href="/phenome-store/store/phenometech-ring/"><img src="/websitelab/assets/lab/uhx/range-1.webp" alt="PhenomeTech Ring in metallic silver" width="388" height="300" loading="lazy" decoding="async"/></a><a class="is-pack" href="/phenome-store/supplements/"><img src="/websitelab/assets/lab/uhx/range-2.webp" alt="Broccoli supplement" width="288" height="360" loading="lazy" decoding="async"/></a><a class="is-ring" href="/phenome-store/store/phenometech-ring/"><img src="/websitelab/assets/lab/uhx/range-3.webp" alt="PhenomeTech Ceramic Ring in blush" width="388" height="300" loading="lazy" decoding="async"/></a><a class="is-pack" href="/phenome-store/store/comprehensive-genomic/"><img src="/websitelab/assets/lab/uhx/range-4.webp" alt="Genetic testing kits" width="360" height="360" loading="lazy" decoding="async"/></a><a class="is-ring" href="/phenome-store/store/phenometech-ring/"><img src="/websitelab/assets/lab/uhx/range-5.webp" alt="PhenomeTech Ring in metallic gold" width="388" height="300" loading="lazy" decoding="async"/></a><a class="is-pack" href="/phenome-store/supplements/"><img src="/websitelab/assets/lab/uhx/range-6.webp" alt="Bromelain supplement" width="288" height="360" loading="lazy" decoding="async"/></a><a class="is-ring" href="/phenome-store/store/phenometech-ring/"><img src="/websitelab/assets/lab/uhx/range-7.webp" alt="PhenomeTech Ceramic Ring in arctic white" width="388" height="300" loading="lazy" decoding="async"/></a><a class="is-pack" href="/phenome-store/supplements/"><img src="/websitelab/assets/lab/uhx/range-8.webp" alt="Guarana supplement" width="288" height="360" loading="lazy" decoding="async"/></a><a class="is-ring" href="/phenome-store/store/phenometech-ring/"><img src="/websitelab/assets/lab/uhx/range-9.webp" alt="PhenomeTech Ring in stealth black" width="388" height="300" loading="lazy" decoding="async"/></a><a class="is-pack" href="/phenome-store/supplements/"><img src="/websitelab/assets/lab/uhx/range-10.webp" alt="Joint Boost supplement" width="288" height="360" loading="lazy" decoding="async"/></a><a class="is-ring" href="/phenome-store/store/phenometech-ring/"><img src="/websitelab/assets/lab/uhx/range-11.webp" alt="PhenomeTech Ceramic Ring in onyx" width="388" height="300" loading="lazy" decoding="async"/></a><a class="is-pack" href="/phenome-store/supplements/"><img src="/websitelab/assets/lab/uhx/range-12.webp" alt="Quercetin supplement" width="288" height="360" loading="lazy" decoding="async"/></a><a class="is-ring" href="/phenome-store/store/phenometech-ring/" tabindex="-1" aria-hidden="true"><img src="/websitelab/assets/lab/uhx/range-1.webp" alt="" width="388" height="300" loading="lazy" decoding="async"/></a><a class="is-pack" href="/phenome-store/supplements/" tabindex="-1" aria-hidden="true"><img src="/websitelab/assets/lab/uhx/range-2.webp" alt="" width="288" height="360" loading="lazy" decoding="async"/></a><a class="is-ring" href="/phenome-store/store/phenometech-ring/" tabindex="-1" aria-hidden="true"><img src="/websitelab/assets/lab/uhx/range-3.webp" alt="" width="388" height="300" loading="lazy" decoding="async"/></a><a class="is-pack" href="/phenome-store/store/comprehensive-genomic/" tabindex="-1" aria-hidden="true"><img src="/websitelab/assets/lab/uhx/range-4.webp" alt="" width="360" height="360" loading="lazy" decoding="async"/></a><a class="is-ring" href="/phenome-store/store/phenometech-ring/" tabindex="-1" aria-hidden="true"><img src="/websitelab/assets/lab/uhx/range-5.webp" alt="" width="388" height="300" loading="lazy" decoding="async"/></a><a class="is-pack" href="/phenome-store/supplements/" tabindex="-1" aria-hidden="true"><img src="/websitelab/assets/lab/uhx/range-6.webp" alt="" width="288" height="360" loading="lazy" decoding="async"/></a><a class="is-ring" href="/phenome-store/store/phenometech-ring/" tabindex="-1" aria-hidden="true"><img src="/websitelab/assets/lab/uhx/range-7.webp" alt="" width="388" height="300" loading="lazy" decoding="async"/></a><a class="is-pack" href="/phenome-store/supplements/" tabindex="-1" aria-hidden="true"><img src="/websitelab/assets/lab/uhx/range-8.webp" alt="" width="288" height="360" loading="lazy" decoding="async"/></a><a class="is-ring" href="/phenome-store/store/phenometech-ring/" tabindex="-1" aria-hidden="true"><img src="/websitelab/assets/lab/uhx/range-9.webp" alt="" width="388" height="300" loading="lazy" decoding="async"/></a><a class="is-pack" href="/phenome-store/supplements/" tabindex="-1" aria-hidden="true"><img src="/websitelab/assets/lab/uhx/range-10.webp" alt="" width="288" height="360" loading="lazy" decoding="async"/></a><a class="is-ring" href="/phenome-store/store/phenometech-ring/" tabindex="-1" aria-hidden="true"><img src="/websitelab/assets/lab/uhx/range-11.webp" alt="" width="388" height="300" loading="lazy" decoding="async"/></a><a class="is-pack" href="/phenome-store/supplements/" tabindex="-1" aria-hidden="true"><img src="/websitelab/assets/lab/uhx/range-12.webp" alt="" width="288" height="360" loading="lazy" decoding="async"/></a></div></div>
+</section>
+
+</div>
+<!-- ==== end of the home opener ==== -->
 
 <!-- 2 · CHARGING CASE · copy, then a pinned frame sequence -->
 <div class="lab-case" data-case="">
@@ -1865,6 +2099,7 @@
 <script src="/websitelab/shared.js"></script>
 <script src="/websitelab/phenome-routes.js"></script>
 <script src="/websitelab/devices/ring-lab/lab.js"></script>
+<script src="/websitelab/devices/ring-lab/uhx.js"></script>
 <script src="/websitelab/devices/ring-lab/fit.js"></script>
 <script src="/websitelab/devices/ring-lab/gen.js"></script>
 <script src="/websitelab/devices/ring-lab/sam.js"></script>

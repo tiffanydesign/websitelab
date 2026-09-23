@@ -1,0 +1,396 @@
+/* ==========================================================================
+   uhx.css · THE HOME OPENER · the first screens of ultrahuman.com/se, section
+   for section and in the same order, told for Phenome: the inset film hero,
+   the cards that fly out of the centre, the battery arc and its counter, the
+   black measures carousel, the two product blocks where the light one slides
+   over the dark one, the app film card, the globe and the product marquee.
+   Behaviour in uhx.js. Every hidden starting state is keyed to .lab-js, so a
+   page whose script does not run shows the finished layout.
+   ========================================================================== */
+
+.uhx {
+  --uhx-blue: #203A85;
+  --uhx-blue-h: #193278;
+  --uhx-turq: #30B0CD;
+  --uhx-turq-2: #3FB9C6;
+  --uhx-ink: #0a0a0c;
+  --uhx-mute: #6e6e73;
+  --uhx-mute-d: #a1a1a6;
+  --uhx-card-d: #1c1c1e;
+  --uhx-card-l: #f0f0f0;
+  --uhx-ease: cubic-bezier(.16, 1, .3, 1);
+  --uhx-mono: 'IBM Plex Mono', ui-monospace, SFMono-Regular, Menlo, monospace;
+  --uhx-gut: clamp(16px, 5.56vw, 80px);
+  color: var(--uhx-ink);
+  font-family: var(--ph-font);
+  letter-spacing: -0.01em;
+}
+.uhx *, .uhx *::before, .uhx *::after { box-sizing: border-box; }
+.uhx img, .uhx video { display: block; }
+
+/* ---- shared type and pills -------------------------------------------- */
+.uhx .uhx-title {
+  margin: 0; font-size: clamp(30px, 2.8vw, 40px); line-height: 1.12;
+  font-weight: 500; letter-spacing: -0.035em;
+}
+.uhx .uhx-body { margin: 16px 0 0; font-size: 16px; line-height: 1.45; color: var(--uhx-mute); }
+.uhx .uhx-pill {
+  display: inline-flex; align-items: center; justify-content: center; gap: 10px;
+  min-width: 140px; height: 37px; padding: 0 24px; border-radius: 999px;
+  font-size: 13px; font-weight: 500; letter-spacing: -0.005em; white-space: nowrap;
+  border: 1px solid transparent; cursor: pointer; text-decoration: none;
+  transition: background-color .3s var(--uhx-ease), color .3s var(--uhx-ease),
+              border-color .3s var(--uhx-ease), transform .3s var(--uhx-ease);
+}
+.uhx .uhx-pill:active { transform: scale(.97); }
+.uhx .uhx-pill.is-blue { background: var(--uhx-blue); color: #fff; }
+.uhx .uhx-pill.is-blue:hover { background: var(--uhx-blue-h); color: #fff; }
+.uhx .uhx-pill.is-ink { background: #000; color: #fff; }
+.uhx .uhx-pill.is-ink:hover { background: #2a2a2e; color: #fff; }
+.uhx .uhx-pill.is-glass {
+  color: #fff; background: rgba(255,255,255,.14); border-color: rgba(255,255,255,.42);
+  -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px);
+}
+.uhx .uhx-pill.is-glass:hover { background: rgba(255,255,255,.26); color: #fff; }
+.uhx .uhx-pill.is-line { color: var(--uhx-ink); border-color: #d2d2d7; background: #fff; }
+.uhx .uhx-pill.is-line:hover { border-color: var(--uhx-ink); color: var(--uhx-ink); }
+.uhx .uhx-pill.is-line-d { color: #fff; border-color: #3a3a3c; background: transparent; }
+.uhx .uhx-pill.is-line-d:hover { border-color: #fff; color: #fff; }
+.uhx .uhx-pill svg { width: 16px; height: 16px; fill: currentColor; }
+
+/* ======================================================================
+   1 · HERO · an inset film card under the nav, copy on the left
+   ====================================================================== */
+.uhx-hero {
+  position: relative; margin: 0 10px; height: calc(100svh - var(--ph-nav-h, 44px));
+  min-height: 560px; max-height: 1000px; border-radius: 20px 20px 0 0; overflow: hidden;
+  background: #050505; color: #fff; isolation: isolate;
+}
+.uhx-hero-media { position: absolute; inset: 0; z-index: -2; }
+.uhx-hero-media video, .uhx-hero-media img {
+  width: 100%; height: 100%; object-fit: cover; object-position: 60% 50%;
+}
+.lab-js .uhx-hero-media { transform: scale(1.08); transition: transform 2.4s var(--uhx-ease); }
+.lab-js .uhx-hero.is-in .uhx-hero-media { transform: none; }
+/* the fade into the page, as on the reference: the film melts into white */
+.uhx-hero::after {
+  content: ""; position: absolute; left: 0; right: 0; bottom: 0; height: 32%; z-index: -1;
+  background: linear-gradient(to bottom, rgba(255,255,255,0), rgba(255,255,255,.55) 55%, #fff);
+  pointer-events: none;
+}
+.uhx-hero::before {
+  content: ""; position: absolute; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(90deg, rgba(0,0,0,.55), rgba(0,0,0,0) 55%);
+}
+.uhx-hero-copy {
+  position: absolute; left: clamp(20px, 8.4vw, 120px); top: 50%; transform: translateY(-38%);
+  max-width: 460px;
+}
+.uhx-hero-eyebrow { margin: 0 0 6px; font-size: 18px; line-height: 1.2; letter-spacing: .01em; }
+.uhx-hero-h1 { margin: 0; font-size: clamp(38px, 3.35vw, 48px); line-height: 1.08; font-weight: 500; letter-spacing: -0.045em; }
+.uhx-hero-sub { margin: 12px 0 0; font-size: 16px; line-height: 1.4; opacity: .9; }
+.uhx-hero-ctas { display: flex; gap: 16px; margin-top: 28px; flex-wrap: wrap; }
+.lab-js .uhx-hero-copy > * { opacity: 0; transform: translateY(18px); }
+.lab-js .uhx-hero.is-in .uhx-hero-copy > * {
+  opacity: 1; transform: none;
+  transition: opacity 1s var(--uhx-ease), transform 1.2s var(--uhx-ease);
+}
+.lab-js .uhx-hero.is-in .uhx-hero-copy > :nth-child(2) { transition-delay: .08s; }
+.lab-js .uhx-hero.is-in .uhx-hero-copy > :nth-child(3) { transition-delay: .16s; }
+.lab-js .uhx-hero.is-in .uhx-hero-copy > :nth-child(4) { transition-delay: .24s; }
+
+/* ======================================================================
+   2 · SCIENCE · six cards that grow out of the centre as it scrolls in
+   ====================================================================== */
+.uhx-sci { position: relative; height: max(720px, 100svh); max-height: 1000px; overflow: hidden; background: #fff; }
+.uhx-sci-stage { position: absolute; inset: 0; }
+.uhx-sci-card {
+  position: absolute; margin: 0; border-radius: 14px; overflow: hidden;
+  left: calc(var(--x) * 1%); top: calc(var(--y) * 1%);
+  width: calc(var(--w) * 1vw); max-width: calc(var(--w) * 14.4px);
+  aspect-ratio: var(--r);
+  will-change: transform; transform-origin: 50% 50%;
+}
+.uhx-sci-card img { width: 100%; height: 100%; object-fit: cover; }
+.uhx-sci-text {
+  position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%);
+  width: min(620px, calc(100% - 32px)); text-align: center; z-index: 2;
+}
+.uhx-sci-text .uhx-title { font-size: clamp(30px, 2.5vw, 36px); }
+.uhx-sci-text .uhx-pill { margin-top: 24px; }
+
+/* ======================================================================
+   3 · BATTERY · the title gives way to a counter, an arc wipes on,
+       the ring rises from below
+   ====================================================================== */
+.uhx-bat { position: relative; height: max(760px, 100svh); max-height: 1000px; overflow: hidden; background: #fff; }
+.uhx-bat-text { position: absolute; left: 0; right: 0; top: 26%; height: 80px; z-index: 3; }
+.uhx-bat-title, .uhx-bat-claim {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  will-change: opacity, transform;
+}
+.uhx-bat-title .uhx-title { text-align: center; padding: 0 16px; }
+.uhx-bat-claim { gap: clamp(20px, 6.4vw, 92px); }
+.lab-js .uhx-bat-claim { opacity: 0; }
+html:not(.lab-js) .uhx-bat-title { display: none; }
+.uhx-bat-side { font-size: 16px; letter-spacing: .02em; color: var(--uhx-mute); white-space: nowrap; }
+.uhx-bat-stat {
+  display: flex; align-items: baseline; gap: .22em; font-size: clamp(44px, 4.4vw, 64px);
+  line-height: 1; font-weight: 500; letter-spacing: -0.05em; font-variant-numeric: tabular-nums;
+}
+.uhx-bat-num { display: inline-block; min-width: .62em; text-align: right; }
+/* the ring is a top view pressed flat into an ellipse; the arc lives in the
+   same box, so it is pressed with it and stays concentric at any width */
+.uhx-bat-ring {
+  position: absolute; left: 50%; top: 51%; z-index: 1;
+  width: min(1450px, 104vw); aspect-ratio: 1600 / 1530;
+  transform: translateX(-50%) scaleY(.56);
+  transform-origin: 50% 0; will-change: transform;
+}
+.uhx-bat-ring img { position: relative; width: 100%; height: 100%; object-fit: contain; }
+.uhx-bat-arc { position: absolute; inset: 0; width: 100%; height: 100%; overflow: visible; }
+.uhx-bat-arc path { fill: none; }
+.uhx-bat-arc .glow { filter: blur(22px); opacity: .55; }
+
+/* ======================================================================
+   4 · MEASURES · black, tabs over a looping carousel
+   ====================================================================== */
+.uhx-meas { position: relative; z-index: 2; background: #000; color: #fff; padding: clamp(96px, 10.4vw, 150px) 0 110px; overflow: hidden; }
+.uhx-meas-head { text-align: center; padding: 0 16px; }
+.uhx-meas-head .uhx-body { color: var(--uhx-mute-d); }
+.uhx-tabs {
+  position: relative; display: flex; justify-content: center; gap: 0; margin: 104px auto 40px;
+  width: max-content; max-width: calc(100% - 32px); overflow-x: auto; scrollbar-width: none;
+}
+.uhx-tabs::-webkit-scrollbar { display: none; }
+.uhx-tab {
+  position: relative; z-index: 1; min-width: 156px; height: 37px; padding: 0 20px;
+  border: 0; border-radius: 999px; background: transparent; color: var(--uhx-mute-d);
+  font-size: 13px; font-weight: 500; cursor: pointer; white-space: nowrap;
+  transition: color .4s var(--uhx-ease);
+}
+.uhx-tab:hover { color: #fff; }
+.uhx-tab[aria-selected="true"] { color: #fff; }
+.uhx-tab-hl {
+  position: absolute; z-index: 0; top: 0; left: 0; height: 37px; border-radius: 999px;
+  background: #2c2c2e; transition: transform .6s var(--uhx-ease), width .6s var(--uhx-ease);
+}
+.uhx-car { position: relative; height: calc(min(768px, 84vw) * .5625 + 150px); touch-action: pan-y; user-select: none; }
+.uhx-slide {
+  --sw: min(768px, 84vw);
+  position: absolute; left: 50%; top: 0; width: var(--sw); margin-left: calc(var(--sw) / -2);
+  transform: translateX(calc(var(--o) * (var(--sw) + 40px)));
+  transition: transform .9s var(--uhx-ease), opacity .9s var(--uhx-ease);
+}
+.uhx-slide.no-tr { transition: none; }
+.uhx-slide-media { position: relative; aspect-ratio: 16 / 9; border-radius: 16px; overflow: hidden; background: #111; }
+.uhx-slide-media img { width: 100%; height: 100%; object-fit: cover; pointer-events: none; }
+.uhx-slide-copy { margin-top: 24px; max-width: 490px; }
+.uhx-slide-t { margin: 0; font-size: 24px; line-height: 1.2; font-weight: 500; letter-spacing: -0.03em; }
+.uhx-slide-d { margin: 12px 0 0; font-size: 15px; line-height: 1.45; color: var(--uhx-mute-d); }
+/* the glass readout over each picture */
+.uhx-glass {
+  position: absolute; right: 6.4%; bottom: 13%; width: 38.5%; padding: 16px 18px 14px;
+  border-radius: 12px; color: #fff;
+  background: rgba(255,255,255,.12); border: 1px solid rgba(255,255,255,.18);
+  -webkit-backdrop-filter: blur(18px) saturate(1.2); backdrop-filter: blur(18px) saturate(1.2);
+  font-family: var(--uhx-mono);
+}
+.uhx-glass-k { margin: 0 0 10px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,.2); font-family: var(--ph-font); font-size: 11px; letter-spacing: -0.01em; }
+.uhx-glass-v { margin: 0; font-size: 18px; letter-spacing: .02em; }
+.uhx-glass-v small { font-size: 9px; opacity: .7; margin-left: 6px; }
+.uhx-glass svg { display: block; width: 100%; height: auto; margin-top: 10px; }
+.uhx-glass-ax { display: flex; justify-content: space-between; margin-top: 6px; font-size: 7px; opacity: .6; }
+.lab-js .uhx-slide .uhx-glass { opacity: 0; transform: translateY(10px); transition: opacity .6s var(--uhx-ease), transform .8s var(--uhx-ease); }
+.lab-js .uhx-slide.is-on .uhx-glass { opacity: 1; transform: none; transition-delay: .45s; }
+.uhx-dots { display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 8px; }
+.uhx-dot {
+  position: relative; width: 6px; height: 6px; padding: 0; border: 0; border-radius: 99px;
+  background: #3a3a3c; overflow: hidden; cursor: pointer;
+  transition: width .6s var(--uhx-ease), background-color .3s;
+}
+.uhx-dot.is-on { width: 48px; }
+.uhx-dot-fill { position: absolute; inset: 0; width: 0; background: #fff; border-radius: inherit; }
+.uhx-dot.is-on .uhx-dot-fill { animation: uhx-fill var(--dur, 6s) linear forwards; }
+.uhx-meas.is-paused .uhx-dot.is-on .uhx-dot-fill { animation-play-state: paused; }
+@keyframes uhx-fill { to { width: 100%; } }
+
+/* ======================================================================
+   5 · FORM FACTORS · the dark block holds, the light one slides over it
+   ====================================================================== */
+.uhx-ff { position: relative; background: #fff; }
+.uhx-ff.is-dark { background: #000; color: #fff; position: sticky; z-index: 1; border-top: 1px solid #2c2c2e; }
+.uhx-ff.is-light { z-index: 3; }
+.uhx-ff-inner { max-width: 1440px; margin: 0 auto; padding: clamp(96px, 9.7vw, 140px) var(--uhx-gut) 150px; }
+.uhx-ff-head { margin: 0 0 72px; font-size: clamp(30px, 2.5vw, 36px); line-height: 1.22; font-weight: 500; letter-spacing: -0.035em; }
+.uhx-ff-head span { display: block; color: #8e8e93; }
+.uhx-ff.is-dark .uhx-ff-head span { color: #7c7c80; }
+.uhx-ff-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; align-items: start; }
+.uhx-rail { position: sticky; top: calc(var(--ph-nav-h, 44px) + 72px); }
+.uhx-rail-media { aspect-ratio: 632 / 462; border-radius: 16px; overflow: hidden; background: #111; }
+.uhx-ff.is-light .uhx-rail-media { background: #d8cbc1; }
+.uhx-rail-media video, .uhx-rail-media img { width: 100%; height: 100%; object-fit: cover; }
+.uhx-rail-meta { display: flex; align-items: center; justify-content: space-between; gap: 12px; margin-top: 33px; }
+.uhx-rail-name {
+  margin: 0; font-size: clamp(24px, 2.2vw, 32px); font-weight: 500; letter-spacing: -0.04em; white-space: nowrap;
+  transition: opacity .5s var(--uhx-ease), transform .6s var(--uhx-ease);
+}
+.lab-js .uhx-rail:not(.is-named) .uhx-rail-name { opacity: 0; transform: translateY(8px); }
+.uhx-rail-ctas { display: flex; gap: 12px; margin-left: auto; }
+.uhx-panels { display: flex; flex-direction: column; gap: 16px; }
+.uhx-panel {
+  position: relative; border-radius: 16px; overflow: hidden; background: var(--uhx-card-l);
+  padding: clamp(28px, 3.33vw, 48px);
+}
+.uhx-ff.is-dark .uhx-panel { background: var(--uhx-card-d); }
+.lab-js .uhx-panel { clip-path: inset(10% 0 0 0 round 16px); transform: translateY(48px); opacity: .001; }
+.lab-js .uhx-panel.is-in {
+  clip-path: inset(0 0 0 0 round 16px); transform: none; opacity: 1;
+  transition: clip-path 1.1s var(--uhx-ease), transform 1.1s var(--uhx-ease), opacity .5s var(--uhx-ease);
+}
+.uhx-panel-intro { min-height: calc((100vw - var(--uhx-gut) * 2 - 16px) / 2 * 462 / 632); max-height: 462px; }
+.uhx-panel-intro p { margin: 0; font-size: clamp(20px, 1.8vw, 26px); line-height: 1.7; font-weight: 500; letter-spacing: -0.03em; }
+.uhx-panel-metric { height: 460px; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; }
+.uhx-metric-eyebrow { margin: 0; font-size: 20px; color: #8e8e93; letter-spacing: -0.01em; }
+.uhx-metric-value { margin: 6px 0 0; font-size: clamp(56px, 5.6vw, 80px); line-height: 1.1; font-weight: 500; letter-spacing: -0.04em; }
+.uhx-metric-cap { margin: 10px 0 0; max-width: 320px; font-size: 22px; line-height: 1.5; letter-spacing: -0.03em; }
+.uhx-metric-decor { position: absolute; inset: 0; pointer-events: none; }
+.uhx-metric-decor svg, .uhx-metric-decor canvas { width: 100%; height: 100%; display: block; }
+.uhx-panel-metric > :not(.uhx-metric-decor) { position: relative; z-index: 1; }
+.uhx-dash { fill: none; stroke: var(--uhx-turq-2); stroke-width: 2.4; stroke-linecap: round; }
+.uhx-dash.a { stroke-dasharray: 1 14; animation: uhx-dash 26s linear infinite; }
+.uhx-dash.b { stroke-dasharray: 1 12; animation: uhx-dash 20s linear infinite reverse; opacity: .8; }
+@keyframes uhx-dash { to { stroke-dashoffset: -300; } }
+.uhx-feat-eyebrow { margin: 8px 0 28px; font-family: var(--uhx-mono); font-size: 15px; letter-spacing: .01em; color: #8e8e93; }
+.uhx-feats { list-style: none; margin: 0; padding: 0; }
+.uhx-feat { display: grid; grid-template-columns: 62px 1fr; align-items: center; padding: 28px 0; border-top: 1px solid rgba(0,0,0,.1); }
+.uhx-feat:first-child { border-top: 0; padding-top: 4px; }
+.uhx-ff.is-dark .uhx-feat { border-top-color: #3a3a3c; }
+.uhx-feat svg { width: 22px; height: 22px; fill: none; stroke: currentColor; stroke-width: 1.6; }
+.uhx-feat-t { margin: 0; font-size: 21px; line-height: 1.3; font-weight: 500; letter-spacing: -0.035em; }
+.uhx-feat-b { margin: 8px 0 0; font-size: 14px; line-height: 1.45; color: #6e6e73; max-width: 400px; }
+.uhx-ff.is-dark .uhx-feat-b { color: #a1a1a6; }
+
+/* ======================================================================
+   6 · APP · the statement, two store pills, a film card
+   ====================================================================== */
+.uhx-app { position: relative; z-index: 3; background: #fff; border-top: 1px solid #e5e5ea; padding: clamp(96px, 9vw, 130px) 16px 150px; text-align: center; }
+.uhx-app .uhx-body { max-width: 540px; margin-left: auto; margin-right: auto; line-height: 1.55; }
+.uhx-app-stores { display: flex; justify-content: center; gap: 8px; margin-top: 34px; }
+.uhx-film {
+  position: relative; width: min(800px, 100%); aspect-ratio: 16 / 9; margin: 128px auto 0;
+  border-radius: 18px; overflow: hidden;
+  background: linear-gradient(180deg, #eef1fb 0%, #e3e8f8 45%, #cdd6f2 100%);
+}
+.uhx-film video, .uhx-film img {
+  position: absolute; left: 50%; top: 0; height: 100%; width: auto; transform: translateX(-50%);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 18%, #000 82%, transparent);
+}
+.uhx-film::after {
+  content: ""; position: absolute; inset: 0; pointer-events: none;
+  box-shadow: inset 0 0 80px rgba(32,58,133,.10);
+}
+.uhx-film-btn {
+  position: absolute; right: 24px; bottom: 24px; z-index: 2; width: 48px; height: 48px;
+  border: 0; border-radius: 50%; background: rgba(0,0,0,.08); color: #000; cursor: pointer;
+  display: grid; place-items: center; -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  transition: background-color .3s;
+}
+.uhx-film-btn:hover { background: rgba(0,0,0,.16); }
+.uhx-film-btn svg { width: 12px; height: 12px; fill: currentColor; }
+.uhx-film-btn .i-pause { display: none; }
+.uhx-film.is-playing .uhx-film-btn .i-play { display: none; }
+.uhx-film.is-playing .uhx-film-btn .i-pause { display: block; }
+.lab-js .uhx-film { transform: scale(.94); opacity: .4; transition: transform 1.4s var(--uhx-ease), opacity 1.2s var(--uhx-ease); }
+.lab-js .uhx-film.is-in { transform: none; opacity: 1; }
+
+/* ======================================================================
+   7 · WORLD · copy and counters beside a turning globe of points
+   ====================================================================== */
+.uhx-world { position: relative; z-index: 3; background: #fff; }
+.uhx-world-inner {
+  max-width: 1440px; margin: 0 auto; padding: 110px var(--uhx-gut) 120px 76px;
+  display: grid; grid-template-columns: 1fr 1fr; align-items: center; gap: 40px;
+  border-bottom: 1px solid #e5e5ea; min-height: 820px;
+}
+.uhx-world-copy { max-width: 520px; }
+.uhx-world-copy .uhx-title { font-size: clamp(36px, 3.4vw, 48px); line-height: 1.2; letter-spacing: -0.045em; }
+.uhx-world-copy .uhx-body { max-width: 420px; font-size: 14px; }
+.uhx-stats { display: flex; margin-top: 72px; }
+.uhx-stat { padding-right: 28px; }
+.uhx-stat + .uhx-stat { padding: 0 0 0 28px; border-left: 1px solid #e5e5ea; }
+.uhx-stat-v { margin: 0; font-size: clamp(30px, 2.8vw, 40px); line-height: 1.1; letter-spacing: -0.04em; font-variant-numeric: tabular-nums; }
+.uhx-stat-k { margin: 14px 0 0; font-size: 14px; color: var(--uhx-mute); }
+.uhx-globe { position: relative; width: min(600px, 100%); aspect-ratio: 1; justify-self: end; }
+.uhx-globe canvas { position: absolute; inset: 0; width: 100%; height: 100%; }
+.uhx-gcard {
+  position: absolute; width: 160px; padding: 14px 16px; border-radius: 10px; color: #fff;
+  background: rgba(40,44,60,.45); border: 1px solid rgba(255,255,255,.22);
+  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  animation: uhx-bob 7s ease-in-out infinite;
+}
+.uhx-gcard.b { animation-delay: -3.5s; }
+.uhx-gcard-k { margin: 0; font-family: var(--uhx-mono); font-size: 9px; letter-spacing: .01em; opacity: .75; }
+.uhx-gcard-v { margin: 10px 0 0; font-size: 16px; line-height: 1; }
+.uhx-gcard-l { margin: 4px 0 0; font-size: 10px; opacity: .9; }
+@keyframes uhx-bob { 50% { transform: translateY(-8px); } }
+
+/* ======================================================================
+   8 · MARQUEE · the range, slow and endless
+   ====================================================================== */
+.uhx-mq { position: relative; z-index: 3; background: #fff; padding: 96px 0 110px; }
+.uhx-mq-k { margin: 0 0 44px; text-align: center; font-family: var(--uhx-mono); font-size: 15px; letter-spacing: .01em; color: #6e6e73; }
+.uhx-mq-view {
+  overflow: hidden;
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+          mask-image: linear-gradient(90deg, transparent, #000 8%, #000 92%, transparent);
+}
+.uhx-mq-track { display: flex; width: max-content; animation: uhx-mq 48s linear infinite; }
+.uhx-mq-view:hover .uhx-mq-track { animation-play-state: paused; }
+.uhx-mq-track a { flex: none; display: flex; align-items: center; height: 120px; padding: 0 44px; }
+.uhx-mq-track img {
+  height: 120px; width: auto; object-fit: contain; mix-blend-mode: multiply;
+  filter: grayscale(1) contrast(1.05); opacity: .72;
+  transition: filter .5s var(--uhx-ease), opacity .5s var(--uhx-ease), transform .5s var(--uhx-ease);
+}
+.uhx-mq-track a.is-ring img { height: 92px; margin-top: 14px; }
+.uhx-mq-track a:hover img { filter: none; opacity: 1; transform: translateY(-4px); }
+@keyframes uhx-mq { to { transform: translateX(-50%); } }
+
+/* ---- small screens ----------------------------------------------------- */
+@media (max-width: 900px) {
+  .uhx-hero { margin: 0 8px; border-radius: 16px 16px 0 0; }
+  .uhx-hero-copy { top: auto; bottom: 22%; transform: none; right: 20px; }
+  .uhx-hero::before { background: linear-gradient(0deg, rgba(0,0,0,.6), rgba(0,0,0,0) 70%); }
+  .uhx-hero::after { height: 14%; }
+  .uhx-sci-card { max-width: none; width: calc(var(--w) * 1.8vw); border-radius: 10px; }
+  .uhx-bat-claim { flex-direction: column; gap: 10px; }
+  .uhx-bat-text { top: 18%; height: 150px; }
+  .uhx-bat-side { font-size: 13px; }
+  .uhx-tabs { justify-content: flex-start; margin-top: 56px; }
+  .uhx-tab { min-width: 0; }
+  .uhx-glass { display: none; }
+  .uhx-ff.is-dark { position: relative; top: auto !important; }
+  .uhx-ff-grid { grid-template-columns: 1fr; }
+  .uhx-rail { position: relative; top: auto; }
+  .lab-js .uhx-rail:not(.is-named) .uhx-rail-name { opacity: 1; transform: none; }
+  .uhx-panel-intro { min-height: 0; }
+  .uhx-panel-metric { height: 380px; }
+  .uhx-world-inner { grid-template-columns: 1fr; padding: 90px 16px; min-height: 0; }
+  .uhx-globe { justify-self: center; }
+  .uhx-stats { margin-top: 44px; }
+  .uhx-film { margin-top: 72px; }
+  .uhx-mq-track img { height: 84px; }
+  .uhx-mq-track a { padding: 0 24px; }
+}
+@media (max-width: 560px) {
+  .uhx-rail-meta { flex-wrap: wrap; }
+  .uhx-rail-ctas { margin-left: 0; }
+  .uhx-stats { flex-direction: column; gap: 24px; }
+  .uhx-stat + .uhx-stat { padding: 0; border-left: 0; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .uhx *, .uhx *::before, .uhx *::after { animation: none !important; transition: none !important; }
+}
